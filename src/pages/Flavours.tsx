@@ -96,12 +96,13 @@ export default function Flavours() {
                       loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className={`text-xs font-sans font-bold tracking-widest uppercase px-3 py-1.5 rounded-full ${
+                      <span className={`inline-flex items-center gap-1.5 text-xs font-sans font-bold tracking-widest uppercase px-3 py-1.5 rounded-full ${
                         flavor.collection === 'nature'
                           ? 'bg-brand-nature text-white'
                           : 'bg-brand-world text-white'
                       }`}>
-                        {flavor.collection === 'nature' ? '🌿 Nature' : '🌍 World'}
+                        {flavor.collection === 'nature' ? <Leaf size={11} /> : <Globe size={11} />}
+                        {flavor.collection === 'nature' ? 'Nature' : 'World'}
                       </span>
                     </div>
                   </div>

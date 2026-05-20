@@ -318,12 +318,6 @@ export default function Home() {
 
             {/* Text */}
             <AnimatedSection delay={0.05}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-px bg-brand-nature" />
-                <span className="font-sans text-xs tracking-[0.25em] uppercase text-brand-nature font-semibold">
-                  Collection 01
-                </span>
-              </div>
               <h2 className="font-display font-black text-brand-dark text-5xl md:text-6xl xl:text-7xl leading-[0.92] tracking-tight mb-7">
                 From All<br />
                 <span className="italic text-brand-nature">of Nature.</span>
@@ -391,12 +385,6 @@ export default function Home() {
 
             {/* Text — RIGHT on desktop */}
             <AnimatedSection delay={0.2} className="order-1 lg:order-2">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-px bg-brand-world-light" />
-                <span className="font-sans text-xs tracking-[0.25em] uppercase text-brand-world-light font-semibold">
-                  Collection 02
-                </span>
-              </div>
               <h2 className="font-display font-black text-white text-5xl md:text-6xl xl:text-7xl leading-[0.92] tracking-tight mb-7">
                 From All<br />
                 <span className="italic text-brand-world-light">the World.</span>
@@ -432,7 +420,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5 md:px-10 mb-10 flex items-end justify-between">
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-brand-red" />
               <span className="font-sans text-xs tracking-[0.25em] uppercase text-brand-red/70 font-semibold">
                 See the Flavours
               </span>
@@ -490,7 +477,6 @@ export default function Home() {
           <AnimatedSection className="flex items-end justify-between mb-12 md:mb-16 gap-6">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-px bg-brand-dark/20" />
                 <span className="font-sans text-xs tracking-[0.25em] uppercase text-brand-dark/40 font-semibold">
                   Right Now
                 </span>
@@ -561,7 +547,6 @@ export default function Home() {
               <span className="italic text-brand-gold-light">somewhere real.</span>
             </blockquote>
             <div className="flex items-center gap-5">
-              <div className="w-10 h-px bg-white/30" />
               <Link
                 to="/about"
                 className="font-sans font-semibold text-sm text-white/60 hover:text-white transition-colors tracking-wide"
@@ -581,7 +566,6 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-px bg-brand-red/50" />
                 <span className="font-sans text-xs tracking-[0.25em] uppercase text-brand-red/60 font-semibold">
                   In Person
                 </span>

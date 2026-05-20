@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Instagram, Facebook, Phone, MapPin, Mail, Heart } from 'lucide-react'
+import { Instagram, Facebook, Phone, MapPin, Mail, Heart, Leaf, Globe } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -9,7 +9,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src="/logo.png" alt="Jellove Ice Cream" className="h-12 w-auto mb-5 brightness-200" />
+            <div className="overflow-hidden mb-4" style={{ height: 88 }}>
+              <img src="/logo.png" alt="Jellove Ice Cream" className="w-72 h-auto" style={{ marginTop: -101 }} />
+            </div>
             <p className="text-sm leading-relaxed text-brand-cream/60 mb-5">
               Handcrafted ice creams born in Madurai — inspired by nature's finest ingredients and the world's greatest flavours.
             </p>
@@ -105,8 +107,12 @@ export default function Footer() {
               </a>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="nature-badge self-start">🌿 From All of Nature</span>
-              <span className="world-badge self-start">🌍 From Around the World</span>
+              <span className="nature-badge self-start inline-flex items-center gap-1.5">
+                <Leaf size={11} />From All of Nature
+              </span>
+              <span className="world-badge self-start inline-flex items-center gap-1.5">
+                <Globe size={11} />From All the World
+              </span>
             </div>
           </div>
         </div>
