@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-dark font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #D42719;
+    color: #FFF5E8;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply font-sans text-xs tracking-[0.25em] uppercase font-semibold;
+  }
+
+  .display-heading {
+    @apply font-display font-black leading-[0.92] tracking-tight;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-brand-red text-white font-sans font-semibold text-sm tracking-wide px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-brand-red-dark hover:scale-105 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-current font-sans font-semibold text-sm tracking-wide px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+
+  .nature-badge {
+    @apply inline-flex items-center gap-1.5 bg-brand-nature/10 text-brand-nature border border-brand-nature/20 rounded-full px-3 py-1 text-xs font-sans font-semibold tracking-wider uppercase;
+  }
+
+  .world-badge {
+    @apply inline-flex items-center gap-1.5 bg-brand-world/10 text-brand-world border border-brand-world/20 rounded-full px-3 py-1 text-xs font-sans font-semibold tracking-wider uppercase;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #FFF5E8; }
+::-webkit-scrollbar-thumb { background: #D42719; border-radius: 2px; }
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Marquee pause on hover */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Premium image zoom on hover */
+.group:hover .group-hover\:scale-108 {
+  transform: scale(1.08);
+}
+
+/* Smooth font rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
