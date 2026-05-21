@@ -48,11 +48,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Jellove Ice Cream"
-              className={`w-auto transition-all duration-400 ${
-                transparent
-                  ? 'h-20 md:h-28'
-                  : 'h-20 md:h-28'
-              }`}
+              className="w-auto transition-all duration-400 h-28 md:h-40"
             />
           </Link>
 

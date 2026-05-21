@@ -99,7 +99,7 @@ function VideoCard({ src, poster, label, collection, origin }: VideoCardProps) {
       onTouchStart={handleEnter}
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="relative flex-shrink-0 w-52 md:w-60 rounded-2xl overflow-hidden cursor-pointer group"
+      className="relative w-full md:flex-shrink-0 md:w-60 rounded-2xl overflow-hidden cursor-pointer group"
       style={{ aspectRatio: '9/16' }}
     >
       <video
@@ -143,9 +143,9 @@ function FlavorCard({ flavor, large = false }: { flavor: typeof natureFlavors[0]
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative overflow-hidden rounded-2xl ${large ? 'row-span-2' : ''}`}
+      className={`group relative overflow-hidden rounded-2xl ${large ? 'lg:row-span-2' : ''}`}
     >
-      <div className={`overflow-hidden bg-brand-cream-dark ${large ? 'aspect-[3/5]' : 'aspect-[4/3]'}`}>
+      <div className={`overflow-hidden bg-brand-cream-dark ${large ? 'aspect-[4/3] lg:aspect-[3/5]' : 'aspect-[4/3]'}`}>
         <img
           src={flavor.heroImage}
           alt={flavor.name}
@@ -510,7 +510,7 @@ export function HeroBannerAperture() {
 ───────────────────────────────────────────────────────── */
 function HeroBanner() {
   return (
-    <section className="relative min-h-screen bg-brand-cream overflow-hidden flex flex-col items-center justify-center px-5 md:px-10 pt-24 md:pt-28">
+    <section className="relative bg-brand-cream overflow-hidden flex flex-col items-center justify-start md:justify-center px-5 md:px-10 pt-24 pb-12 md:min-h-screen md:pt-28 md:pb-0">
 
       {/* ── Ghost brand watermark ── */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -634,16 +634,21 @@ function HeroBanner() {
 export default function HomeNew() {
   const videoScrollRef = useRef<HTMLDivElement>(null)
   const [videoIdx, setVideoIdx] = useState(0)
+  const touchStartX = useRef(0)
 
-  const scrollVideos = (dir: 'left' | 'right') => {
-    const el = videoScrollRef.current
-    if (!el) return
-    const cards = el.querySelectorAll<HTMLElement>('.vid-card')
-    const next = dir === 'right'
-      ? Math.min(videoIdx + 1, cards.length - 1)
-      : Math.max(videoIdx - 1, 0)
+  const slideVideos = (dir: 'left' | 'right' | number, targetIdx?: number) => {
+    const track = videoScrollRef.current
+    if (!track) return
+    const cards = track.querySelectorAll<HTMLElement>('.vid-card')
+    const next = targetIdx !== undefined
+      ? targetIdx
+      : dir === 'right'
+        ? Math.min(videoIdx + 1, cards.length - 1)
+        : Math.max(videoIdx - 1, 0)
+    const card = cards[next]
+    if (!card) return
+    track.style.transform = `translateX(-${card.offsetLeft}px)`
     setVideoIdx(next)
-    cards[next]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
   }
 
   const videos: VideoCardProps[] = [
@@ -746,33 +751,70 @@ export default function HomeNew() {
       </section>
 
       {/* ══ VIDEO SHOWCASE ══ */}
-      <section className="py-10 md:py-24 lg:py-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5 md:px-10 mb-10 flex items-end justify-between">
+      <section className="py-10 md:py-24 lg:py-32">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 mb-8 md:mb-10 flex items-end justify-between">
           <AnimatedSection>
             <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl leading-[0.95] tracking-tight">
               Watch them<br /><span className="italic text-brand-red">come alive.</span>
             </h2>
           </AnimatedSection>
-          <div className="hidden md:flex items-center gap-2">
-            <button onClick={() => scrollVideos('left')} className="w-10 h-10 rounded-full border border-brand-dark/15 flex items-center justify-center hover:bg-brand-cream-dark transition-colors">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => slideVideos('left')}
+              disabled={videoIdx === 0}
+              className="w-10 h-10 rounded-full border border-brand-dark/15 flex items-center justify-center hover:bg-brand-cream-dark transition-colors disabled:opacity-30"
+            >
               <ChevronLeft size={18} className="text-brand-dark/60" />
             </button>
-            <button onClick={() => scrollVideos('right')} className="w-10 h-10 rounded-full border border-brand-dark/15 flex items-center justify-center hover:bg-brand-cream-dark transition-colors">
+            <button
+              onClick={() => slideVideos('right')}
+              disabled={videoIdx === videos.length - 1}
+              className="w-10 h-10 rounded-full border border-brand-dark/15 flex items-center justify-center hover:bg-brand-cream-dark transition-colors disabled:opacity-30"
+            >
               <ChevronRight size={18} className="text-brand-dark/60" />
             </button>
           </div>
         </div>
 
-        <div ref={videoScrollRef} className="flex gap-4 md:gap-5 overflow-x-auto px-5 md:px-10 pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-          {videos.map((v, i) => (
-            <motion.div key={v.src} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="vid-card flex-shrink-0">
-              <VideoCard {...v} />
-            </motion.div>
+        {/* Clip wrapper — no scroll, transform slides the track */}
+        <div
+          className="overflow-hidden px-5 md:px-10"
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX }}
+          onTouchEnd={(e) => {
+            const diff = touchStartX.current - e.changedTouches[0].clientX
+            if (Math.abs(diff) > 40) slideVideos(diff > 0 ? 'right' : 'left')
+          }}
+        >
+          <div
+            ref={videoScrollRef}
+            className="flex gap-3 md:gap-5"
+            style={{ transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1)' }}
+          >
+            {videos.map((v, i) => (
+              <motion.div
+                key={v.src}
+                className="vid-card flex-shrink-0 w-[44vw] md:w-60"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <VideoCard {...v} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-1.5 mt-5">
+          {videos.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => slideVideos('right', i)}
+              className={`rounded-full transition-all duration-300 ${i === videoIdx ? 'w-5 h-1.5 bg-brand-red' : 'w-1.5 h-1.5 bg-brand-dark/20 hover:bg-brand-dark/40'}`}
+            />
           ))}
         </div>
-        <p className="text-center mt-4 text-xs font-sans text-brand-dark/30 tracking-widest uppercase md:hidden">Swipe to explore ›</p>
       </section>
 
       {/* ══ FEATURED FLAVOURS ══ */}
@@ -793,7 +835,7 @@ export default function HomeNew() {
             <AnimatedSection delay={0.05} className="lg:col-span-1 lg:row-span-2"><FlavorCard flavor={natureFlavors[0]} large /></AnimatedSection>
             <AnimatedSection delay={0.12}><FlavorCard flavor={worldFlavors[0]} /></AnimatedSection>
             <AnimatedSection delay={0.18}><FlavorCard flavor={natureFlavors[1]} /></AnimatedSection>
-            <AnimatedSection delay={0.24} className="col-span-2 lg:col-span-1"><FlavorCard flavor={worldFlavors[1]} /></AnimatedSection>
+            <AnimatedSection delay={0.24}><FlavorCard flavor={worldFlavors[1]} /></AnimatedSection>
             <AnimatedSection delay={0.28}><FlavorCard flavor={natureFlavors[2]} /></AnimatedSection>
             <AnimatedSection delay={0.32}><FlavorCard flavor={worldFlavors[2]} /></AnimatedSection>
           </div>
