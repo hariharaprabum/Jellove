@@ -3,9 +3,7 @@ import { MapPin, Phone, Clock, Instagram, MessageCircle, ExternalLink } from 'lu
 import AnimatedSection from '../components/AnimatedSection'
 
 const hours = [
-  { day: 'Monday – Friday', time: '11:00 AM – 10:00 PM' },
-  { day: 'Saturday', time: '10:00 AM – 10:30 PM' },
-  { day: 'Sunday', time: '10:00 AM – 11:00 PM' },
+  { day: 'All Days', time: '11:00 AM – 11:00 PM' },
 ]
 
 const orderOptions = [
@@ -39,7 +37,7 @@ export default function Store() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="relative bg-brand-dark py-24 md:py-36 overflow-hidden">
+      <section className="relative bg-brand-dark py-12 md:py-24 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img src="/images/posters/nature-2.jpg" alt="" className="w-full h-full object-cover" />
         </div>
@@ -62,9 +60,9 @@ export default function Store() {
       </section>
 
       {/* Location + Hours */}
-      <section className="py-16 md:py-28">
+      <section className="py-10 md:py-16 lg:py-28">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
             {/* Info */}
             <AnimatedSection>
               <span className="section-label text-brand-red/60 mb-5 block">Store Details</span>
@@ -82,7 +80,7 @@ export default function Store() {
                     Tamil Nadu, India
                   </p>
                   <a
-                    href="https://maps.google.com/?q=KK+Nagar+Madurai+Tamil+Nadu"
+                    href="https://www.google.com/maps/place/Jellove+Ice+Cream/@9.932808,78.1487419,17z"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 mt-3 text-brand-red font-sans font-semibold text-sm hover:underline"
@@ -129,7 +127,7 @@ export default function Store() {
               <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-brand-cream-dark">
                 <iframe
                   title="Jellove Store Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0!2d78.1198!3d9.9252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnMzAuNyJOIDc4wrAwNycxMS4zIkU!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1!2d78.1465528!3d9.9328080!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5a87fb95741%3A0x213b157c69e4496a!2sJellove%20Ice%20Cream!5e0!3m2!1sen!2sin!4v1716300000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -153,9 +151,9 @@ export default function Store() {
       </section>
 
       {/* Order options */}
-      <section className="py-16 md:py-24 bg-brand-dark">
+      <section className="py-10 md:py-16 lg:py-24 bg-brand-dark">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-8 md:mb-12">
             <span className="section-label text-brand-gold/60 mb-3 block">Get Your Scoops</span>
             <h2 className="display-heading text-4xl md:text-5xl text-white">
               Order <span className="italic text-brand-gold-light">your way</span>

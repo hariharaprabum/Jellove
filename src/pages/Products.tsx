@@ -14,7 +14,7 @@ export default function Products() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="relative bg-brand-cream-dark py-24 md:py-36 overflow-hidden">
+      <section className="relative bg-brand-cream-dark py-12 md:py-24 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src="/images/posters/nature-1.png" alt="" className="w-full h-full object-cover" />
         </div>
@@ -36,7 +36,7 @@ export default function Products() {
       </section>
 
       {/* Products grid */}
-      <section className="py-16 md:py-28">
+      <section className="py-10 md:py-16 lg:py-28">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {products.map((product, i) => {

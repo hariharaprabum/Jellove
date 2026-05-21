@@ -15,7 +15,7 @@ export default function Flavours() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-brand-dark py-24 md:py-36">
+      <section className="relative overflow-hidden bg-brand-dark py-12 md:py-24 lg:py-36">
         {/* Background split */}
         <div className="absolute inset-0 flex">
           <div className="flex-1 opacity-20">
@@ -73,7 +73,7 @@ export default function Flavours() {
       </section>
 
       {/* Flavour grid */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">

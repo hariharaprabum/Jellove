@@ -674,17 +674,17 @@ export default function HomeNew() {
       </section>
 
       {/* ══ COLLECTION 01 — FROM ALL OF NATURE ══ */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
             <AnimatedSection delay={0.05}>
-              <h2 className="font-display font-black text-brand-dark text-5xl md:text-6xl xl:text-7xl leading-[0.92] tracking-tight mb-7">
+              <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl xl:text-7xl leading-[0.92] tracking-tight mb-4 md:mb-7">
                 From All<br /><span className="italic text-brand-nature">of Nature.</span>
               </h2>
-              <p className="font-body text-brand-dark/55 text-lg leading-relaxed mb-8 max-w-md">
+              <p className="font-body text-brand-dark/55 text-base md:text-lg leading-relaxed mb-5 md:mb-8 max-w-md">
                 Five flavours born from India's richest soils and coastlines — each scoop carries a story of the land, the tree, the harvest.
               </p>
-              <div className="flex flex-wrap gap-2 mb-10">
+              <div className="flex flex-wrap gap-2 mb-6 md:mb-10">
                 {natureFlavors.map((f) => (
                   <span key={f.id} className="border border-brand-nature/20 text-brand-nature/70 rounded-full px-3.5 py-1 text-xs font-sans font-semibold">{f.name}</span>
                 ))}
@@ -710,9 +710,9 @@ export default function HomeNew() {
       </section>
 
       {/* ══ COLLECTION 02 — FROM AROUND THE WORLD ══ */}
-      <section className="py-24 md:py-36 bg-brand-dark">
+      <section className="py-10 md:py-24 lg:py-36 bg-brand-dark">
         <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
             <AnimatedSection delay={0.05} className="grid grid-cols-2 grid-rows-2 gap-3 md:gap-4 order-2 lg:order-1">
               <div className="rounded-2xl overflow-hidden">
                 <img src="/images/world/honeycomb.png" alt="Honeycomb" className="w-full h-full object-cover aspect-square" loading="lazy" />
@@ -726,13 +726,13 @@ export default function HomeNew() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} className="order-1 lg:order-2">
-              <h2 className="font-display font-black text-white text-5xl md:text-6xl xl:text-7xl leading-[0.92] tracking-tight mb-7">
+              <h2 className="font-display font-black text-white text-4xl md:text-5xl xl:text-7xl leading-[0.92] tracking-tight mb-4 md:mb-7">
                 From All<br /><span className="italic text-brand-world-light">the World.</span>
               </h2>
-              <p className="font-body text-white/55 text-lg leading-relaxed mb-8 max-w-md">
+              <p className="font-body text-white/55 text-base md:text-lg leading-relaxed mb-5 md:mb-8 max-w-md">
                 Honeycomb from the British Isles. Matcha from Uji. Peppermint from English meadows. The world's great flavours, made with love in Madurai.
               </p>
-              <div className="flex flex-wrap gap-2 mb-10">
+              <div className="flex flex-wrap gap-2 mb-6 md:mb-10">
                 {worldFlavors.map((f) => (
                   <span key={f.id} className="border border-brand-world/40 text-brand-world-light/70 rounded-full px-3.5 py-1 text-xs font-sans font-semibold">{f.name}</span>
                 ))}
@@ -746,7 +746,7 @@ export default function HomeNew() {
       </section>
 
       {/* ══ VIDEO SHOWCASE ══ */}
-      <section className="py-24 md:py-32 overflow-hidden">
+      <section className="py-10 md:py-24 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-10 mb-10 flex items-end justify-between">
           <AnimatedSection>
             <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl leading-[0.95] tracking-tight">
@@ -776,9 +776,9 @@ export default function HomeNew() {
       </section>
 
       {/* ══ FEATURED FLAVOURS ══ */}
-      <section className="py-24 md:py-32 bg-brand-cream-dark">
+      <section className="py-10 md:py-24 lg:py-32 bg-brand-cream-dark">
         <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <AnimatedSection className="flex items-end justify-between mb-12 md:mb-16 gap-6">
+          <AnimatedSection className="flex items-end justify-between mb-8 md:mb-12 lg:mb-16 gap-6">
             <div>
               <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl leading-[0.95] tracking-tight">
                 Today's<br /><span className="italic text-brand-red">favourites.</span>
@@ -807,7 +807,7 @@ export default function HomeNew() {
       </section>
 
       {/* ══ ABOUT QUOTE ══ */}
-      <section className="relative py-28 md:py-44 overflow-hidden">
+      <section className="relative py-14 md:py-28 lg:py-44 overflow-hidden">
         <div className="absolute inset-0">
           <img src="/images/posters/world-1.png" alt="" className="w-full h-full object-cover object-center" loading="lazy" />
           <div className="absolute inset-0 bg-brand-dark/75" />
@@ -827,14 +827,14 @@ export default function HomeNew() {
       </section>
 
       {/* ══ STORE CTA ══ */}
-      <section className="py-24 md:py-32">
+      <section className="py-10 md:py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <h2 className="font-display font-black text-brand-dark text-5xl md:text-6xl leading-[0.92] tracking-tight mb-7">
+              <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl lg:text-6xl leading-[0.92] tracking-tight mb-4 md:mb-7">
                 Come say<br /><span className="italic text-brand-red">hello.</span>
               </h2>
-              <div className="flex items-start gap-3 mb-8">
+              <div className="flex items-start gap-3 mb-5 md:mb-8">
                 <MapPin size={18} className="text-brand-red mt-0.5 flex-shrink-0" />
                 <p className="font-body text-brand-dark/60 text-lg leading-relaxed">
                   Opposite Sundaram Park Main Entrance,<br />KK Nagar, Madurai

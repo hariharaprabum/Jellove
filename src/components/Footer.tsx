@@ -122,10 +122,9 @@ export default function Footer() {
       <div className="py-5">
         <div className="max-w-7xl mx-auto px-5 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-brand-cream/30 font-sans">
           <span>© 2025 Jellove Ice Cream. All rights reserved.</span>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-brand-cream/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-cream/60 transition-colors">Terms of Service</a>
-          </div>
+          <span className="text-brand-cream/20">
+            Developed by <span className="text-brand-cream/40 font-semibold tracking-wide">Waioz</span>
+          </span>
         </div>
       </div>
     </footer>

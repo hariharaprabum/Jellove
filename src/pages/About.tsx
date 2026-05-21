@@ -28,7 +28,7 @@ export default function About() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="relative bg-brand-dark py-28 md:py-40 overflow-hidden">
+      <section className="relative bg-brand-dark py-12 md:py-28 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 opacity-25">
           <img src="/images/posters/world-1.png" alt="" className="w-full h-full object-cover object-top" />
         </div>
@@ -51,10 +51,10 @@ export default function About() {
       </section>
 
       {/* Story — alternating */}
-      <section className="py-20 md:py-32">
+      <section className="py-10 md:py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           {/* Block 1: text left, image right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center mb-24 md:mb-36">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-14 lg:gap-24 items-center mb-10 md:mb-24 lg:mb-36">
             <AnimatedSection>
               <span className="section-label text-brand-red/60 mb-4 block">Where We Began</span>
               <h2 className="display-heading text-4xl md:text-5xl text-brand-dark mb-6">
@@ -85,7 +85,7 @@ export default function About() {
           </div>
 
           {/* Block 2: image left, text right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-14 lg:gap-24 items-center">
             <AnimatedSection delay={0.1} className="relative order-2 lg:order-1">
               <div className="rounded-3xl overflow-hidden aspect-[4/5]">
                 <img
@@ -118,9 +118,9 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28 bg-brand-cream-dark">
+      <section className="py-10 md:py-20 lg:py-28 bg-brand-cream-dark">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <AnimatedSection className="text-center mb-14">
+          <AnimatedSection className="text-center mb-8 md:mb-14">
             <span className="section-label text-brand-red/60 mb-3 block">What We Stand For</span>
             <h2 className="display-heading text-4xl md:text-5xl text-brand-dark">
               Our <span className="italic text-brand-red">values</span>
@@ -144,7 +144,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-brand-dark text-center">
+      <section className="py-12 md:py-24 bg-brand-dark text-center">
         <div className="max-w-3xl mx-auto px-5">
           <AnimatedSection>
             <h3 className="display-heading text-white text-4xl md:text-6xl mb-5">
