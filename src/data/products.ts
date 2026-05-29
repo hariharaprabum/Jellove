@@ -1,76 +1,78 @@
-export interface ProductSize {
-  name: string
-  scoops: number
-  price: number
-  bestFor: string
-}
-
 export interface Product {
   id: string
   name: string
   description: string
-  sizes: ProductSize[]
   image: string
+  category: 'icecream' | 'candies' | 'desserts'
   badge?: string
-  popular?: boolean
+  flavoursNote?: string
 }
 
-export const products: Product[] = [
+export const iceCreamProducts: Product[] = [
   {
-    id: 'single-scoop',
-    name: 'Single Scoop Cup',
-    description: 'One generous scoop in our signature Jellove cup. The classic way to enjoy any single flavour.',
-    sizes: [
-      { name: 'Regular', scoops: 1, price: 60, bestFor: 'A quick treat' },
-      { name: 'Large', scoops: 1, price: 80, bestFor: 'Generous indulgence' },
-    ],
-    image: '/images/nature/strawberry.png',
-    popular: false,
+    id: 'icecream-small',
+    name: 'Ice Cream — Small',
+    description: 'A perfectly portioned cup — great for a quick treat or for the little ones. Choose any single flavour from our Nature or World collection.',
+    image: '/images/nature/strawberry.webp',
+    category: 'icecream',
+    flavoursNote: 'Available in all 10 flavours',
   },
   {
-    id: 'double-scoop',
-    name: 'Double Scoop Cup',
-    description: 'Two scoops — mix any two flavours across Nature or World collections.',
-    sizes: [
-      { name: 'Standard', scoops: 2, price: 110, bestFor: 'Mixing collections' },
-      { name: 'Loaded', scoops: 2, price: 140, bestFor: 'Extra generous' },
-    ],
-    image: '/images/world/honeycomb.png',
-    popular: true,
+    id: 'icecream-regular',
+    name: 'Ice Cream — Regular',
+    description: 'Our signature serving. A generous scoop of your favourite flavour — handcrafted fresh, every single day.',
+    image: '/images/nature/mango.webp',
+    category: 'icecream',
     badge: 'Most Popular',
+    flavoursNote: 'Available in all 10 flavours',
+  },
+]
+
+export const candyProducts: Product[] = [
+  {
+    id: 'fruit-candies',
+    name: 'Fruit Candies',
+    description: 'Stick ice cream made with real fruit — refreshing, natural, and perfect for a quick bite on the go. Made from our From All of Nature collection flavours.',
+    image: '/images/world/peppermint-icecream.webp',
+    category: 'candies',
+    flavoursNote: 'Available in select Nature flavours',
+  },
+]
+
+export const dessertProducts: Product[] = [
+  {
+    id: 'cheesecake',
+    name: 'Cheesecake',
+    description: 'Rich, creamy cheesecake made in-house. Dense, velvety, and perfectly balanced between sweet and tangy.',
+    image: '/images/world/cheesecake-swirl.webp',
+    category: 'desserts',
   },
   {
-    id: 'trio-cup',
-    name: 'Trio Cup',
-    description: 'Three scoops of your choice — the perfect sampler to explore both collections.',
-    sizes: [
-      { name: 'Classic', scoops: 3, price: 160, bestFor: 'First-time explorers' },
-    ],
-    image: '/images/world/cheesecake.png',
-    badge: 'Fan Favourite',
-    popular: true,
+    id: 'brownie-pit',
+    name: 'Brownie Pit',
+    description: 'A deep, fudgy brownie — warm, chocolatey, and indulgent. Crisp edges, gooey centre.',
+    image: '/images/desserts/brownie.webp',
+    category: 'desserts',
   },
   {
-    id: 'party-pack',
-    name: 'Party Pack',
-    description: 'Take the joy home. Choose up to 5 flavours in our premium party tub — perfect for celebrations.',
-    sizes: [
-      { name: '500ml', scoops: 0, price: 280, bestFor: '2–3 people' },
-      { name: '1 Litre', scoops: 0, price: 520, bestFor: '4–6 people' },
-      { name: '2 Litres', scoops: 0, price: 950, bestFor: 'Parties & events' },
-    ],
-    image: '/images/posters/nature-2.jpg',
-    popular: false,
+    id: 'apple-pie',
+    name: 'Apple Pie',
+    description: 'Classic apple pie with a buttery crust and cinnamon-spiced filling. Comfort food at its finest.',
+    image: '/images/desserts/apple-pie.webp',
+    category: 'desserts',
   },
   {
-    id: 'combo-box',
-    name: 'Combo Tasting Box',
-    description: 'A curated set of 6 single-serve cups — 3 from Nature, 3 from the World. The perfect gift.',
-    sizes: [
-      { name: 'Tasting Set', scoops: 6, price: 350, bestFor: 'Gifting & exploration' },
-    ],
-    image: '/images/world/matcha.png',
-    badge: 'Gift Ready',
-    popular: false,
+    id: 'lemon-tart',
+    name: 'Lemon Tart',
+    description: 'A bright, zesty lemon curd in a crisp pastry shell. Sharp, refreshing, and beautifully light.',
+    image: '/images/desserts/lemon-tart.webp',
+    category: 'desserts',
+  },
+  {
+    id: 'ny-cookies',
+    name: 'New York Cookies',
+    description: 'Thick, bakery-style cookies — crispy outside, chewy inside. Inspired by the classic New York cookie shops.',
+    image: '/images/desserts/ny-cookies.webp',
+    category: 'desserts',
   },
 ]

@@ -9,18 +9,18 @@ import { natureFlavors, worldFlavors } from '../data/flavors'
 interface MarqueeItem { name: string; origin: string; img: string; collection: 'nature' | 'world' }
 
 const NATURE_ITEMS: MarqueeItem[] = [
-  { name: 'Mango',               origin: 'Tamil Nadu',    img: '/images/nature/mango.jpg',                collection: 'nature' },
-  { name: 'Strawberry',          origin: 'Ooty Farms',    img: '/images/nature/strawberry.png',           collection: 'nature' },
-  { name: 'Tender Coconut',      origin: 'Kerala Coast',  img: '/images/nature/tender-coconut-swirl.jpg', collection: 'nature' },
-  { name: 'Chikoo',              origin: 'South India',   img: '/images/nature/chikoo.png',               collection: 'nature' },
-  { name: 'Jackfruit Musk Melon',origin: 'Kerala & TN',   img: '/images/nature/jackfruit.jpg',            collection: 'nature' },
+  { name: 'Mango',               origin: 'Tamil Nadu',    img: '/images/nature/mango.webp',                collection: 'nature' },
+  { name: 'Strawberry',          origin: 'Ooty Farms',    img: '/images/nature/strawberry.webp',           collection: 'nature' },
+  { name: 'Tender Coconut',      origin: 'Kerala Coast',  img: '/images/nature/tender-coconut-swirl.webp', collection: 'nature' },
+  { name: 'Chikoo',              origin: 'South India',   img: '/images/nature/chikoo.webp',               collection: 'nature' },
+  { name: 'Jackfruit Musk Melon',origin: 'Kerala & TN',   img: '/images/nature/jackfruit.webp',            collection: 'nature' },
 ]
 const WORLD_ITEMS: MarqueeItem[] = [
-  { name: 'Honeycomb',           origin: 'British Isles', img: '/images/world/honeycomb.png',             collection: 'world' },
-  { name: 'Matcha',              origin: 'Uji, Japan',    img: '/images/world/matcha.png',                collection: 'world' },
-  { name: 'Peppermint',          origin: 'England',       img: '/images/world/peppermint.png',            collection: 'world' },
-  { name: 'Cheesecake',          origin: 'New York',      img: '/images/world/cheesecake-swirl.png',      collection: 'world' },
-  { name: 'Brown Butter Vanilla',origin: 'Paris, France', img: '/images/world/brown-butter-vanilla.png',  collection: 'world' },
+  { name: 'Honeycomb',           origin: 'British Isles', img: '/images/world/honeycomb.webp',             collection: 'world' },
+  { name: 'Matcha',              origin: 'Uji, Japan',    img: '/images/world/matcha.webp',                collection: 'world' },
+  { name: 'Peppermint',          origin: 'England',       img: '/images/world/peppermint.webp',            collection: 'world' },
+  { name: 'Cheesecake',          origin: 'New York',      img: '/images/world/cheesecake-swirl.webp',      collection: 'world' },
+  { name: 'Brown Butter Vanilla',origin: 'Paris, France', img: '/images/world/brown-butter-vanilla.webp',  collection: 'world' },
 ]
 
 function Marquee({ items, reverse = false }: { items: MarqueeItem[]; reverse?: boolean }) {
@@ -137,47 +137,17 @@ function VideoCard({ src, poster, label, collection, origin }: VideoCardProps) {
   )
 }
 
-/* ─── Flavor card ──────────────────────────────────────── */
-function FlavorCard({ flavor, large = false }: { flavor: typeof natureFlavors[0]; large?: boolean }) {
-  return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative overflow-hidden rounded-2xl ${large ? 'lg:row-span-2' : ''}`}
-    >
-      <div className={`overflow-hidden bg-brand-cream-dark ${large ? 'aspect-[4/3] lg:aspect-[3/5]' : 'aspect-[4/3]'}`}>
-        <img
-          src={flavor.heroImage}
-          alt={flavor.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
-          loading="lazy"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-        <span className={`inline-flex items-center gap-1 text-[9px] font-sans font-semibold tracking-[0.2em] uppercase mb-2 ${
-          flavor.collection === 'nature' ? 'text-green-300' : 'text-amber-300'
-        }`}>
-          {flavor.collection === 'nature' ? <Leaf size={8} /> : <Globe size={8} />}
-          {flavor.collection === 'nature' ? 'From Nature' : 'From the World'}
-        </span>
-        <h3 className="font-display font-bold text-white text-xl md:text-2xl leading-tight">{flavor.name}</h3>
-        <p className="text-white/55 text-xs font-body mt-1 hidden md:block">{flavor.tagline}</p>
-      </div>
-    </motion.div>
-  )
-}
 
 
 /* ─────────────────────────────────────────────────────────
    BACKUP: THE APERTURE HERO (kept for reference)
 ───────────────────────────────────────────────────────── */
 const APERTURE_SLIDES = [
-  { src: '/images/nature/strawberry.png',          collection: 'nature' as const, glow: 'rgba(210,50,70,0.18)'  },
-  { src: '/images/world/brown-butter-vanilla.png', collection: 'world'  as const, glow: 'rgba(200,130,30,0.17)' },
-  { src: '/images/nature/tender-coconut-swirl.jpg',collection: 'nature' as const, glow: 'rgba(40,160,100,0.15)' },
-  { src: '/images/world/cheesecake-swirl.png',     collection: 'world'  as const, glow: 'rgba(140,60,180,0.14)' },
-  { src: '/images/world/peppermint-icecream.png',  collection: 'world'  as const, glow: 'rgba(40,160,180,0.15)' },
+  { src: '/images/nature/strawberry.webp',          collection: 'nature' as const, glow: 'rgba(210,50,70,0.18)'  },
+  { src: '/images/world/brown-butter-vanilla.webp', collection: 'world'  as const, glow: 'rgba(200,130,30,0.17)' },
+  { src: '/images/nature/tender-coconut-swirl.webp',collection: 'nature' as const, glow: 'rgba(40,160,100,0.15)' },
+  { src: '/images/world/cheesecake-swirl.webp',     collection: 'world'  as const, glow: 'rgba(140,60,180,0.14)' },
+  { src: '/images/world/peppermint-icecream.webp',  collection: 'world'  as const, glow: 'rgba(40,160,180,0.15)' },
 ]
 
 export function HeroBannerAperture() {
@@ -203,7 +173,7 @@ export function HeroBannerAperture() {
         {/* Left — Nature */}
         <div className="flex-1 relative overflow-hidden">
           <motion.img
-            src="/images/nature/tender-coconut-icecream.jpg"
+            src="/images/nature/tender-coconut-icecream.webp"
             alt=""
             className="w-full h-full object-cover object-center"
             initial={{ scale: 1.12 }}
@@ -217,7 +187,7 @@ export function HeroBannerAperture() {
         {/* Right — World */}
         <div className="flex-1 relative overflow-hidden">
           <motion.img
-            src="/images/world/vanilla-bean.png"
+            src="/images/world/vanilla-bean.webp"
             alt=""
             className="w-full h-full object-cover object-center"
             initial={{ scale: 1.12 }}
@@ -547,9 +517,9 @@ function HeroBanner() {
           {/* Paper frame */}
           <div className="absolute inset-0 rounded-2xl ring-[6px] ring-white/80 ring-inset z-10 pointer-events-none" />
           <img
-            src="/images/posters/nature-2.jpg"
+            src="/images/posters/nature-2.webp"
             alt="From All of Nature"
-            className="w-full h-full object-cover"
+            decoding="async" className="w-full h-full object-cover"
           />
         </motion.div>
 
@@ -569,9 +539,9 @@ function HeroBanner() {
         >
           <div className="absolute inset-0 rounded-2xl ring-[6px] ring-white/80 ring-inset z-10 pointer-events-none" />
           <img
-            src="/images/posters/world-1.png"
+            src="/images/posters/world-1.webp"
             alt="From All the World"
-            className="w-full h-full object-cover"
+            decoding="async" className="w-full h-full object-cover"
           />
         </motion.div>
       </div>
@@ -652,16 +622,16 @@ export default function HomeNew() {
   }
 
   const videos: VideoCardProps[] = [
-    { src: '/videos/strawberry.mp4',        poster: '/images/nature/strawberry.png',          label: 'Strawberry',        collection: 'nature', origin: 'Ooty Farms' },
-    { src: '/videos/mango.mp4',             poster: '/images/nature/mango.jpg',               label: 'Mango',             collection: 'nature', origin: 'Tamil Nadu' },
-    { src: '/videos/chikoo.mp4',            poster: '/images/nature/chikoo.png',              label: 'Chikoo',            collection: 'nature', origin: 'South India' },
-    { src: '/videos/jackfruit.mp4',         poster: '/images/nature/jackfruit.jpg',           label: 'Jackfruit Musk Melon', collection: 'nature', origin: 'Kerala & TN' },
-    { src: '/videos/tender-coconut.mp4',    poster: '/images/nature/tender-coconut-swirl.jpg',label: 'Tender Coconut',    collection: 'nature', origin: 'Kerala Coast' },
-    { src: '/videos/honeycomb.mp4',         poster: '/images/world/honeycomb.png',            label: 'Honeycomb',         collection: 'world',  origin: 'British Isles' },
-    { src: '/videos/matcha.mp4',            poster: '/images/world/matcha.png',               label: 'Matcha',            collection: 'world',  origin: 'Uji, Japan' },
-    { src: '/videos/peppermint.mp4',        poster: '/images/world/peppermint.png',           label: 'Peppermint',        collection: 'world',  origin: 'England' },
-    { src: '/videos/cheesecake.mp4',        poster: '/images/world/cheesecake-swirl.png',     label: 'Cheesecake',        collection: 'world',  origin: 'New York, USA' },
-    { src: '/videos/brown-butter-vanilla.mp4', poster: '/images/world/brown-butter-vanilla.png', label: 'Brown Butter Vanilla', collection: 'world', origin: 'Paris, France' },
+    { src: '/videos/strawberry.mp4',        poster: '/images/nature/strawberry.webp',          label: 'Strawberry',        collection: 'nature', origin: 'Ooty Farms' },
+    { src: '/videos/mango.mp4',             poster: '/images/nature/mango.webp',               label: 'Mango',             collection: 'nature', origin: 'Tamil Nadu' },
+    { src: '/videos/chikoo.mp4',            poster: '/images/nature/chikoo.webp',              label: 'Chikoo',            collection: 'nature', origin: 'South India' },
+    { src: '/videos/jackfruit.mp4',         poster: '/images/nature/jackfruit.webp',           label: 'Jackfruit Musk Melon', collection: 'nature', origin: 'Kerala & TN' },
+    { src: '/videos/tender-coconut.mp4',    poster: '/images/nature/tender-coconut-swirl.webp',label: 'Tender Coconut',    collection: 'nature', origin: 'Kerala Coast' },
+    { src: '/videos/honeycomb.mp4',         poster: '/images/world/honeycomb.webp',            label: 'Honeycomb',         collection: 'world',  origin: 'British Isles' },
+    { src: '/videos/matcha.mp4',            poster: '/images/world/matcha.webp',               label: 'Matcha',            collection: 'world',  origin: 'Uji, Japan' },
+    { src: '/videos/peppermint.mp4',        poster: '/images/world/peppermint.webp',           label: 'Peppermint',        collection: 'world',  origin: 'England' },
+    { src: '/videos/cheesecake.mp4',        poster: '/images/world/cheesecake-swirl.webp',     label: 'Cheesecake',        collection: 'world',  origin: 'New York, USA' },
+    { src: '/videos/brown-butter-vanilla.mp4', poster: '/images/world/brown-butter-vanilla.webp', label: 'Brown Butter Vanilla', collection: 'world', origin: 'Paris, France' },
   ]
 
   return (
@@ -701,13 +671,13 @@ export default function HomeNew() {
 
             <AnimatedSection delay={0.2} className="grid grid-cols-2 grid-rows-2 gap-3 md:gap-4">
               <div className="row-span-2 rounded-2xl overflow-hidden">
-                <img src="/images/nature/mango.jpg" alt="Mango" className="w-full h-full object-cover aspect-[2/3]" loading="lazy" />
+                <img src="/images/nature/mango.webp" alt="Mango" className="w-full h-full object-cover aspect-[2/3]" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden">
-                <img src="/images/nature/strawberry.png" alt="Strawberry" className="w-full h-full object-cover aspect-square" loading="lazy" />
+                <img src="/images/nature/strawberry.webp" alt="Strawberry" className="w-full h-full object-cover aspect-square" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden">
-                <img src="/images/nature/tender-coconut.jpg" alt="Tender Coconut" className="w-full h-full object-cover aspect-square" loading="lazy" />
+                <img src="/images/nature/tender-coconut.webp" alt="Tender Coconut" className="w-full h-full object-cover aspect-square" loading="lazy" />
               </div>
             </AnimatedSection>
           </div>
@@ -720,13 +690,13 @@ export default function HomeNew() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
             <AnimatedSection delay={0.05} className="grid grid-cols-2 grid-rows-2 gap-3 md:gap-4 order-2 lg:order-1">
               <div className="rounded-2xl overflow-hidden">
-                <img src="/images/world/honeycomb.png" alt="Honeycomb" className="w-full h-full object-cover aspect-square" loading="lazy" />
+                <img src="/images/world/honeycomb.webp" alt="Honeycomb" className="w-full h-full object-cover aspect-square" loading="lazy" />
               </div>
               <div className="row-span-2 rounded-2xl overflow-hidden">
-                <img src="/images/world/matcha.png" alt="Matcha" className="w-full h-full object-cover aspect-[2/3]" loading="lazy" />
+                <img src="/images/world/matcha.webp" alt="Matcha" className="w-full h-full object-cover aspect-[2/3]" loading="lazy" />
               </div>
               <div className="rounded-2xl overflow-hidden">
-                <img src="/images/world/peppermint.png" alt="Peppermint" className="w-full h-full object-cover aspect-square" loading="lazy" />
+                <img src="/images/world/peppermint.webp" alt="Peppermint" className="w-full h-full object-cover aspect-square" loading="lazy" />
               </div>
             </AnimatedSection>
 
@@ -817,41 +787,10 @@ export default function HomeNew() {
         </div>
       </section>
 
-      {/* ══ FEATURED FLAVOURS ══ */}
-      <section className="py-10 md:py-24 lg:py-32 bg-brand-cream-dark">
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <AnimatedSection className="flex items-end justify-between mb-8 md:mb-12 lg:mb-16 gap-6">
-            <div>
-              <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl leading-[0.95] tracking-tight">
-                Today's<br /><span className="italic text-brand-red">favourites.</span>
-              </h2>
-            </div>
-            <Link to="/flavours" className="hidden md:inline-flex items-center gap-2 text-brand-red font-sans font-semibold text-sm hover:gap-3 transition-all">
-              All 10 Flavours <ArrowRight size={15} />
-            </Link>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-            <AnimatedSection delay={0.05} className="lg:col-span-1 lg:row-span-2"><FlavorCard flavor={natureFlavors[0]} large /></AnimatedSection>
-            <AnimatedSection delay={0.12}><FlavorCard flavor={worldFlavors[0]} /></AnimatedSection>
-            <AnimatedSection delay={0.18}><FlavorCard flavor={natureFlavors[1]} /></AnimatedSection>
-            <AnimatedSection delay={0.24}><FlavorCard flavor={worldFlavors[1]} /></AnimatedSection>
-            <AnimatedSection delay={0.28}><FlavorCard flavor={natureFlavors[2]} /></AnimatedSection>
-            <AnimatedSection delay={0.32}><FlavorCard flavor={worldFlavors[2]} /></AnimatedSection>
-          </div>
-
-          <AnimatedSection className="text-center mt-10 md:hidden">
-            <Link to="/flavours" className="btn-outline text-brand-red border-brand-red hover:bg-brand-red hover:text-white">
-              All 10 Flavours <ArrowRight size={15} />
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* ══ ABOUT QUOTE ══ */}
       <section className="relative py-14 md:py-28 lg:py-44 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/posters/world-1.png" alt="" className="w-full h-full object-cover object-center" loading="lazy" />
+          <img src="/images/posters/world-1.webp" alt="" className="w-full h-full object-cover object-center" loading="lazy" />
           <div className="absolute inset-0 bg-brand-dark/75" />
         </div>
         <div className="relative max-w-5xl mx-auto px-5 md:px-10">
@@ -893,7 +832,7 @@ export default function HomeNew() {
 
             <AnimatedSection delay={0.2} className="relative">
               <div className="rounded-3xl overflow-hidden aspect-[4/3]">
-                <img src="/images/posters/nature-2.jpg" alt="Jellove Ice Cream Store" className="w-full h-full object-cover" loading="lazy" />
+                <img src="/images/posters/nature-2.webp" alt="Jellove Ice Cream Store" decoding="async" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </AnimatedSection>
           </div>

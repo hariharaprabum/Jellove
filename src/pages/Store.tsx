@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Clock, Instagram, MessageCircle, ExternalLink } from 'lucide-react'
+import { MapPin, Phone, Clock, Instagram, MessageCircle, ExternalLink, ArrowRight, Navigation } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 
 const hours = [
@@ -39,7 +39,7 @@ export default function Store() {
       {/* Hero */}
       <section className="relative bg-brand-dark py-12 md:py-24 lg:py-36 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img src="/images/posters/nature-2.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/posters/nature-2.webp" alt="" decoding="async" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 to-brand-dark" />
         <div className="relative max-w-4xl mx-auto px-5 md:px-8 text-center">
@@ -122,28 +122,85 @@ export default function Store() {
               </div>
             </AnimatedSection>
 
-            {/* Map embed */}
+            {/* Map embed — branded */}
             <AnimatedSection delay={0.2}>
-              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-brand-cream-dark">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-brand-cream-deeper/60" style={{ minHeight: '460px' }}>
+
+                {/* Location badge — top left */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-full pl-2 pr-4 py-1.5 shadow-lg">
+                  <div className="w-6 h-6 rounded-full bg-brand-red flex items-center justify-center flex-shrink-0">
+                    <MapPin size={12} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="font-sans font-bold text-[11px] text-brand-dark leading-tight">Jellove Ice Cream</p>
+                    <p className="font-sans text-[9px] text-brand-dark/50 leading-tight">KK Nagar, Madurai</p>
+                  </div>
+                </div>
+
+                {/* Open status — top right */}
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-brand-dark/80 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-nature animate-pulse flex-shrink-0" />
+                  <span className="font-sans font-bold text-[10px] text-white/90 tracking-wide">Open · 11AM–11PM</span>
+                </div>
+
+                {/* Map iframe */}
                 <iframe
                   title="Jellove Store Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1!2d78.1465528!3d9.9328080!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5a87fb95741%3A0x213b157c69e4496a!2sJellove%20Ice%20Cream!5e0!3m2!1sen!2sin!4v1716300000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
+                  style={{ border: 0, position: 'absolute', inset: 0, width: '100%', height: '100%' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full"
                 />
+
+                {/* Bottom info strip */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 bg-brand-dark/90 backdrop-blur-md px-5 py-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="font-display font-bold text-white text-sm leading-tight truncate">
+                        Jellove Ice Cream
+                      </p>
+                      <p className="font-body text-white/50 text-xs mt-0.5 truncate">
+                        Opp. Sundaram Park, KK Nagar, Madurai
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.google.com/maps/place/Jellove+Ice+Cream/@9.932808,78.1487419,17z"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-brand-red hover:bg-brand-red-dark text-white font-sans font-bold text-xs px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-105 flex-shrink-0"
+                    >
+                      <Navigation size={11} />
+                      Directions
+                    </a>
+                  </div>
+                </div>
               </div>
-              {/* Poster below map */}
-              <div className="mt-6 rounded-2xl overflow-hidden">
-                <img
-                  src="/images/posters/nature-2.jpg"
-                  alt="Jellove Ice Cream"
-                  className="w-full object-cover max-h-48"
-                />
+
+              {/* Quick action pills below map */}
+              <div className="flex gap-3 mt-4">
+                <a
+                  href="tel:+918124960933"
+                  className="flex-1 flex items-center justify-center gap-2 bg-brand-cream-dark hover:bg-brand-cream-deeper border border-brand-cream-deeper rounded-2xl py-3 font-sans font-semibold text-xs text-brand-dark/70 hover:text-brand-dark transition-all duration-200"
+                >
+                  <Phone size={13} /> Call Us
+                </a>
+                <a
+                  href="https://wa.me/918124960933"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 bg-brand-cream-dark hover:bg-brand-cream-deeper border border-brand-cream-deeper rounded-2xl py-3 font-sans font-semibold text-xs text-brand-dark/70 hover:text-brand-dark transition-all duration-200"
+                >
+                  <MessageCircle size={13} /> WhatsApp
+                </a>
+                <a
+                  href="https://www.google.com/maps/place/Jellove+Ice+Cream/@9.932808,78.1487419,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 bg-brand-cream-dark hover:bg-brand-cream-deeper border border-brand-cream-deeper rounded-2xl py-3 font-sans font-semibold text-xs text-brand-dark/70 hover:text-brand-dark transition-all duration-200"
+                >
+                  <ExternalLink size={13} /> Maps
+                </a>
               </div>
             </AnimatedSection>
           </div>

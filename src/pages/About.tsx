@@ -30,7 +30,7 @@ export default function About() {
       {/* Hero */}
       <section className="relative bg-brand-dark py-12 md:py-28 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 opacity-25">
-          <img src="/images/posters/world-1.png" alt="" className="w-full h-full object-cover object-top" />
+          <img src="/images/posters/world-1.webp" alt="" className="w-full h-full object-cover object-top" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/60 to-brand-dark" />
         <div className="relative max-w-4xl mx-auto px-5 md:px-8 text-center">
@@ -72,9 +72,9 @@ export default function About() {
             <AnimatedSection delay={0.2} className="relative">
               <div className="rounded-3xl overflow-hidden aspect-[4/5]">
                 <img
-                  src="/images/posters/nature-1.png"
+                  src="/images/posters/nature-1.webp"
                   alt="From All of Nature"
-                  className="w-full h-full object-cover"
+                  decoding="async" className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-5 -left-5 bg-brand-nature text-white rounded-2xl px-5 py-3 shadow-xl">
@@ -89,9 +89,9 @@ export default function About() {
             <AnimatedSection delay={0.1} className="relative order-2 lg:order-1">
               <div className="rounded-3xl overflow-hidden aspect-[4/5]">
                 <img
-                  src="/images/posters/world-1.png"
+                  src="/images/posters/world-1.webp"
                   alt="From Around the World"
-                  className="w-full h-full object-cover"
+                  decoding="async" className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-5 -right-5 bg-brand-world text-white rounded-2xl px-5 py-3 shadow-xl">

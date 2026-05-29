@@ -19,10 +19,10 @@ export default function Flavours() {
         {/* Background split */}
         <div className="absolute inset-0 flex">
           <div className="flex-1 opacity-20">
-            <img src="/images/nature/mango.jpg" alt="" className="w-full h-full object-cover" />
+            <img src="/images/nature/mango.webp" alt="" decoding="async" className="w-full h-full object-cover" />
           </div>
           <div className="flex-1 opacity-20">
-            <img src="/images/world/matcha.png" alt="" className="w-full h-full object-cover" />
+            <img src="/images/world/matcha.webp" alt="" decoding="async" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="absolute inset-0 bg-brand-dark/60" />
