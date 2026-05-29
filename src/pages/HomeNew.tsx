@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Leaf, Globe, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -655,39 +655,110 @@ function HeroBanner() {
   )
 }
 
+/* ─── Static video list (module-level so effects can reference it safely) ─ */
+const VIDEOS: VideoCardProps[] = [
+  { src: '/videos/strawberry.mp4',           poster: '/images/nature/strawberry.webp',           label: 'Strawberry',          collection: 'nature', origin: 'Ooty Farms' },
+  { src: '/videos/mango.mp4',                poster: '/images/nature/mango.webp',                label: 'Mango',               collection: 'nature', origin: 'Tamil Nadu' },
+  { src: '/videos/chikoo.mp4',               poster: '/images/nature/chikoo.webp',               label: 'Chikoo',              collection: 'nature', origin: 'South India' },
+  { src: '/videos/jackfruit.mp4',            poster: '/images/nature/jackfruit.webp',            label: 'Jackfruit Musk Melon',collection: 'nature', origin: 'Kerala & TN' },
+  { src: '/videos/tender-coconut.mp4',       poster: '/images/nature/tender-coconut-swirl.webp', label: 'Tender Coconut',      collection: 'nature', origin: 'Kerala Coast' },
+  { src: '/videos/honeycomb.mp4',            poster: '/images/world/honeycomb.webp',             label: 'Honeycomb',           collection: 'world',  origin: 'British Isles' },
+  { src: '/videos/matcha.mp4',               poster: '/images/world/matcha.webp',                label: 'Matcha',              collection: 'world',  origin: 'Uji, Japan' },
+  { src: '/videos/peppermint.mp4',           poster: '/images/world/peppermint.webp',            label: 'Peppermint',          collection: 'world',  origin: 'England' },
+  { src: '/videos/cheesecake.mp4',           poster: '/images/world/cheesecake-swirl.webp',      label: 'Cheesecake',          collection: 'world',  origin: 'New York, USA' },
+  { src: '/videos/brown-butter-vanilla.mp4', poster: '/images/world/brown-butter-vanilla.webp',  label: 'Brown Butter Vanilla',collection: 'world',  origin: 'Paris, France' },
+]
+
+/* ─── Carousel progress dot ─────────────────────────────── */
+const AUTOPLAY_MS = 4000
+
+function ProgressDot({ isActive, onClick }: { isActive: boolean; onClick: () => void }) {
+  const r = 4.5
+  const circ = 2 * Math.PI * r
+  return (
+    <button onClick={onClick} className="w-5 h-5 flex items-center justify-center cursor-pointer flex-shrink-0">
+      {isActive ? (
+        <svg width={18} height={18} style={{ transform: 'rotate(-90deg)' }}>
+          <circle cx={9} cy={9} r={r} fill="none" stroke="rgba(26,13,4,0.12)" strokeWidth={2} />
+          <motion.circle
+            cx={9} cy={9} r={r}
+            fill="none" stroke="#D42719" strokeWidth={2} strokeLinecap="round"
+            strokeDasharray={circ}
+            initial={{ strokeDashoffset: circ }}
+            animate={{ strokeDashoffset: 0 }}
+            transition={{ duration: AUTOPLAY_MS / 1000, ease: 'linear' }}
+          />
+        </svg>
+      ) : (
+        <div className="w-1.5 h-1.5 rounded-full bg-brand-dark/25 hover:bg-brand-dark/50 transition-colors" />
+      )}
+    </button>
+  )
+}
+
 /* ─── Page ─────────────────────────────────────────────── */
 export default function HomeNew() {
   const videoScrollRef = useRef<HTMLDivElement>(null)
   const [videoIdx, setVideoIdx] = useState(0)
+  const videoIdxRef = useRef(0)
   const touchStartX = useRef(0)
+  const [visibleCount, setVisibleCount] = useState(3)
 
-  const slideVideos = (dir: 'left' | 'right' | number, targetIdx?: number) => {
+  // Calculate how many cards fit in the visible container
+  useEffect(() => {
+    const calc = () => {
+      const track = videoScrollRef.current
+      if (!track) return
+      const card = track.querySelector<HTMLElement>('.vid-card')
+      if (!card) return
+      const container = track.parentElement!
+      const style = window.getComputedStyle(container)
+      const available = container.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 12
+      setVisibleCount(Math.max(1, Math.floor((available + gap) / (card.offsetWidth + gap))))
+    }
+    calc()
+    window.addEventListener('resize', calc)
+    return () => window.removeEventListener('resize', calc)
+  }, [])
+
+  const goTo = useCallback((idx: number) => {
     const track = videoScrollRef.current
     if (!track) return
     const cards = track.querySelectorAll<HTMLElement>('.vid-card')
-    const next = targetIdx !== undefined
-      ? targetIdx
-      : dir === 'right'
-        ? Math.min(videoIdx + 1, cards.length - 1)
-        : Math.max(videoIdx - 1, 0)
-    const card = cards[next]
+    const bounded = Math.max(0, Math.min(idx, cards.length - 1))
+    const card = cards[bounded]
     if (!card) return
-    track.style.transform = `translateX(-${card.offsetLeft}px)`
-    setVideoIdx(next)
-  }
+    const container = track.parentElement!
+    const paddingRight = parseFloat(window.getComputedStyle(container).paddingRight)
+    const maxTranslate = Math.max(0, track.scrollWidth - container.clientWidth + paddingRight)
+    track.style.transform = `translateX(-${Math.min(card.offsetLeft, maxTranslate)}px)`
+    setVideoIdx(bounded)
+    videoIdxRef.current = bounded
+  }, [])
 
-  const videos: VideoCardProps[] = [
-    { src: '/videos/strawberry.mp4',        poster: '/images/nature/strawberry.webp',          label: 'Strawberry',        collection: 'nature', origin: 'Ooty Farms' },
-    { src: '/videos/mango.mp4',             poster: '/images/nature/mango.webp',               label: 'Mango',             collection: 'nature', origin: 'Tamil Nadu' },
-    { src: '/videos/chikoo.mp4',            poster: '/images/nature/chikoo.webp',              label: 'Chikoo',            collection: 'nature', origin: 'South India' },
-    { src: '/videos/jackfruit.mp4',         poster: '/images/nature/jackfruit.webp',           label: 'Jackfruit Musk Melon', collection: 'nature', origin: 'Kerala & TN' },
-    { src: '/videos/tender-coconut.mp4',    poster: '/images/nature/tender-coconut-swirl.webp',label: 'Tender Coconut',    collection: 'nature', origin: 'Kerala Coast' },
-    { src: '/videos/honeycomb.mp4',         poster: '/images/world/honeycomb.webp',            label: 'Honeycomb',         collection: 'world',  origin: 'British Isles' },
-    { src: '/videos/matcha.mp4',            poster: '/images/world/matcha.webp',               label: 'Matcha',            collection: 'world',  origin: 'Uji, Japan' },
-    { src: '/videos/peppermint.mp4',        poster: '/images/world/peppermint.webp',           label: 'Peppermint',        collection: 'world',  origin: 'England' },
-    { src: '/videos/cheesecake.mp4',        poster: '/images/world/cheesecake-swirl.webp',     label: 'Cheesecake',        collection: 'world',  origin: 'New York, USA' },
-    { src: '/videos/brown-butter-vanilla.mp4', poster: '/images/world/brown-butter-vanilla.webp', label: 'Brown Butter Vanilla', collection: 'world', origin: 'Paris, France' },
-  ]
+  // Autoplay — advances one PAGE at a time so dots stay in sync
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const totalPages = Math.ceil(VIDEOS.length / visibleCount)
+      const currentPage = Math.floor(videoIdxRef.current / visibleCount)
+      const nextPage = (currentPage + 1) % totalPages
+      goTo(nextPage * visibleCount)
+    }, AUTOPLAY_MS)
+    return () => clearInterval(timer)
+  }, [goTo, visibleCount])
+
+  // Prev/next move by one PAGE, dot-click jumps to page start
+  const totalPages = Math.ceil(VIDEOS.length / visibleCount)
+  const currentPage = Math.floor(videoIdx / visibleCount)
+
+  const slideVideos = (dir: 'left' | 'right' | number, targetIdx?: number) => {
+    if (targetIdx !== undefined) { goTo(targetIdx); return }
+    const nextPage = dir === 'right'
+      ? Math.min(currentPage + 1, totalPages - 1)
+      : Math.max(currentPage - 1, 0)
+    goTo(nextPage * visibleCount)
+  }
 
   return (
     <div>
@@ -786,14 +857,14 @@ export default function HomeNew() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => slideVideos('left')}
-              disabled={videoIdx === 0}
+              disabled={currentPage === 0}
               className="w-10 h-10 rounded-full border border-brand-dark/15 flex items-center justify-center hover:bg-brand-cream-dark transition-colors disabled:opacity-30"
             >
               <ChevronLeft size={18} className="text-brand-dark/60" />
             </button>
             <button
               onClick={() => slideVideos('right')}
-              disabled={videoIdx === videos.length - 1}
+              disabled={currentPage === totalPages - 1}
               className="w-10 h-10 rounded-full border border-brand-dark/15 flex items-center justify-center hover:bg-brand-cream-dark transition-colors disabled:opacity-30"
             >
               <ChevronRight size={18} className="text-brand-dark/60" />
@@ -815,7 +886,7 @@ export default function HomeNew() {
             className="flex gap-3 md:gap-5"
             style={{ transition: 'transform 0.5s cubic-bezier(0.16,1,0.3,1)' }}
           >
-            {videos.map((v, i) => (
+            {VIDEOS.map((v, i) => (
               <motion.div
                 key={v.src}
                 className="vid-card flex-shrink-0 w-[44vw] md:w-60"
@@ -830,13 +901,13 @@ export default function HomeNew() {
           </div>
         </div>
 
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-1.5 mt-5">
-          {videos.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => slideVideos('right', i)}
-              className={`rounded-full transition-all duration-300 ${i === videoIdx ? 'w-5 h-1.5 bg-brand-red' : 'w-1.5 h-1.5 bg-brand-dark/20 hover:bg-brand-dark/40'}`}
+        {/* Page dots — one per visible-group, not per card */}
+        <div className="flex justify-center items-center gap-1 mt-4">
+          {Array.from({ length: totalPages }, (_, p) => (
+            <ProgressDot
+              key={p}
+              isActive={currentPage === p}
+              onClick={() => goTo(p * visibleCount)}
             />
           ))}
         </div>
