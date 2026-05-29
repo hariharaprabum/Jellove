@@ -503,46 +503,101 @@ function HeroBanner() {
 
         {/* Nature poster — tilted left */}
         <motion.div
-          className="relative flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer"
+          className="relative flex-shrink-0 cursor-pointer flex flex-col"
           style={{
             width: 'clamp(150px, 22vw, 300px)',
-            aspectRatio: '3 / 4',
-            boxShadow: '0 32px 80px rgba(26,13,4,0.22), 0 8px 24px rgba(26,13,4,0.12)',
+            boxShadow: '0 32px 80px rgba(26,13,4,0.25), 0 8px 24px rgba(26,13,4,0.14)',
+            borderRadius: '16px',
           }}
           initial={{ opacity: 0, x: -50, rotate: -10 }}
           animate={{ opacity: 1, x: 0, rotate: -6 }}
           transition={{ duration: 1.0, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
           whileHover={{ rotate: -2, y: -16, scale: 1.03, transition: { duration: 0.35, ease: 'easeOut' } }}
         >
-          {/* Paper frame */}
-          <div className="absolute inset-0 rounded-2xl ring-[6px] ring-white/80 ring-inset z-10 pointer-events-none" />
-          <img
-            src="/images/posters/nature-2.webp"
-            alt="From All of Nature"
-            decoding="async" className="w-full h-full object-cover"
-          />
+          {/* Image — pure, no overlays */}
+          <div className="relative overflow-hidden flex-shrink-0"
+            style={{ aspectRatio: '3/3.4', borderRadius: '16px 16px 0 0' }}>
+            <div className="absolute inset-0 rounded-tl-2xl rounded-tr-2xl ring-[5px] ring-white/70 ring-inset z-10 pointer-events-none" />
+            <img
+              src="/images/posters/nature-2-clean.webp"
+              alt="From All of Nature"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Caption tag — outside the image, part of the card */}
+          <div className="relative flex items-center gap-3 px-4 py-3.5"
+            style={{ background: '#1A0D04', borderRadius: '0 0 16px 16px', borderTop: '2px solid #3A6030' }}>
+            <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ background: 'rgba(58,96,48,0.25)', border: '1px solid rgba(58,96,48,0.5)' }}>
+              <Leaf size={11} className="text-green-300" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-sans font-bold text-green-300/60 leading-none mb-1"
+                style={{ fontSize: 'clamp(6px, 0.65vw, 8px)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
+                From All of
+              </p>
+              <p className="font-display font-black italic text-white leading-none"
+                style={{ fontSize: 'clamp(16px, 2vw, 28px)', letterSpacing: '-0.01em' }}>
+                Nature
+              </p>
+            </div>
+            <p className="font-display font-black text-white/10 leading-none ml-auto flex-shrink-0 select-none"
+              style={{ fontSize: 'clamp(24px, 3vw, 44px)' }}>
+              01
+            </p>
+          </div>
         </motion.div>
 
         {/* World poster — tilted right, overlaps slightly */}
         <motion.div
-          className="relative flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer"
+          className="relative flex-shrink-0 cursor-pointer flex flex-col"
           style={{
             width: 'clamp(150px, 22vw, 300px)',
-            aspectRatio: '3 / 4',
             marginLeft: 'clamp(-24px, -3vw, -40px)',
-            boxShadow: '0 32px 80px rgba(26,13,4,0.22), 0 8px 24px rgba(26,13,4,0.12)',
+            boxShadow: '0 32px 80px rgba(26,13,4,0.25), 0 8px 24px rgba(26,13,4,0.14)',
+            borderRadius: '16px',
           }}
           initial={{ opacity: 0, x: 50, rotate: 10 }}
           animate={{ opacity: 1, x: 0, rotate: 6 }}
           transition={{ duration: 1.0, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           whileHover={{ rotate: 2, y: -16, scale: 1.03, transition: { duration: 0.35, ease: 'easeOut' } }}
         >
-          <div className="absolute inset-0 rounded-2xl ring-[6px] ring-white/80 ring-inset z-10 pointer-events-none" />
-          <img
-            src="/images/posters/world-1.webp"
-            alt="From All the World"
-            decoding="async" className="w-full h-full object-cover"
-          />
+          {/* Image — pure, no overlays */}
+          <div className="relative overflow-hidden flex-shrink-0"
+            style={{ aspectRatio: '3/3.4', borderRadius: '16px 16px 0 0' }}>
+            <div className="absolute inset-0 rounded-tl-2xl rounded-tr-2xl ring-[5px] ring-white/70 ring-inset z-10 pointer-events-none" />
+            <img
+              src="/images/posters/world-1-clean.webp"
+              alt="From All the World"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Caption tag */}
+          <div className="relative flex items-center gap-3 px-4 py-3.5"
+            style={{ background: '#1A0D04', borderRadius: '0 0 16px 16px', borderTop: '2px solid #8A5A10' }}>
+            <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ background: 'rgba(138,90,16,0.25)', border: '1px solid rgba(138,90,16,0.5)' }}>
+              <Globe size={11} className="text-amber-300" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-sans font-bold text-amber-300/60 leading-none mb-1"
+                style={{ fontSize: 'clamp(6px, 0.65vw, 8px)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
+                Around the
+              </p>
+              <p className="font-display font-black italic text-white leading-none"
+                style={{ fontSize: 'clamp(16px, 2vw, 28px)', letterSpacing: '-0.01em' }}>
+                World
+              </p>
+            </div>
+            <p className="font-display font-black text-white/10 leading-none ml-auto flex-shrink-0 select-none"
+              style={{ fontSize: 'clamp(24px, 3vw, 44px)' }}>
+              02
+            </p>
+          </div>
         </motion.div>
       </div>
 
