@@ -44,7 +44,7 @@ export const dessertProducts: Product[] = [
     id: 'cheesecake',
     name: 'Cheesecake',
     description: 'Rich, creamy cheesecake made in-house. Dense, velvety, and perfectly balanced between sweet and tangy.',
-    image: '/images/world/cheesecake-swirl.webp',
+    image: '/images/desserts/cheesecake.webp',
     category: 'desserts',
   },
   {
