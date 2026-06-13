@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-brand-dark text-brand-cream/80">
       {/* Top bar */}
-      <div className="border-b border-white/8 py-12 md:py-16">
+      <div className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -116,6 +116,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
       </div>
 
       {/* Bottom bar */}

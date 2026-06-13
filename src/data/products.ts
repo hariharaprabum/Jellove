@@ -33,7 +33,7 @@ export const candyProducts: Product[] = [
     id: 'fruit-candies',
     name: 'Fruit Candies',
     description: 'Stick ice cream made with real fruit — refreshing, natural, and perfect for a quick bite on the go. Made from our From All of Nature collection flavours.',
-    image: '/images/world/peppermint-icecream.webp',
+    image: '/images/nature/fruit-candies.webp',
     category: 'candies',
     flavoursNote: 'Available in select Nature flavours',
   },

@@ -102,7 +102,7 @@ export const flavors: Flavor[] = [
     tagline: 'Crisp & Arctic',
     description: 'English peppermint oil in pure white cream — clean, cool, and unexpectedly luxurious.',
     collection: 'world',
-    heroImage: '/images/world/peppermint.webp',
+    heroImage: '/images/world/peppermint-leaves.webp',
     color: 'bg-teal-50',
     accentHex: '#0E8A7A',
     origin: 'England',
