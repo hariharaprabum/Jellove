@@ -949,7 +949,7 @@ export default function HomeNew() {
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link to="/store" className="btn-primary">Store Info & Hours <ArrowRight size={15} /></Link>
-                <a href="https://wa.me/918124960933" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/918807159702" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 border border-brand-dark/20 text-brand-dark/70 hover:border-[#25D366] hover:text-[#25D366] font-sans font-semibold text-sm tracking-wide px-6 py-3.5 rounded-full transition-all duration-300">
                   WhatsApp Us
                 </a>

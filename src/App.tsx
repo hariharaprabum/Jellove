@@ -30,7 +30,7 @@ function AppInner() {
         </Routes>
       </main>
       <Footer />
-      <WhatsAppButton phone="+918124960933" />
+      <WhatsAppButton phone="+918807159702" />
     </div>
   )
 }

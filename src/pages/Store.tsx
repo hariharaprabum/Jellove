@@ -12,15 +12,15 @@ const orderOptions = [
     title: 'WhatsApp Order',
     body: 'Chat with us directly to place an order, ask about flavours, or arrange a pickup.',
     cta: 'Chat Now',
-    href: 'https://wa.me/918124960933?text=Hi%20Jellove!%20I%27d%20like%20to%20place%20an%20order.',
+    href: 'https://wa.me/918807159702?text=Hi%20Jellove!%20I%27d%20like%20to%20place%20an%20order.',
     color: 'bg-[#25D366] hover:bg-[#1DA851] text-white',
   },
   {
     icon: <Phone size={26} />,
     title: 'Call Us',
     body: 'Prefer to call? Our team is happy to help with orders and any questions.',
-    cta: '+91 81249 60933',
-    href: 'tel:+918124960933',
+    cta: '+91 88071 59702',
+    href: 'tel:+918807159702',
     color: 'bg-brand-red hover:bg-brand-red-dark text-white',
   },
   {
@@ -75,6 +75,7 @@ export default function Store() {
                 <div>
                   <h3 className="font-display font-bold text-xl text-brand-dark mb-1">Address</h3>
                   <p className="font-body text-brand-dark/65 leading-relaxed">
+                    Iswariya Lakshmi Plaza,<br />
                     Opposite Sundaram Park Main Entrance,<br />
                     KK Nagar, Madurai<br />
                     Tamil Nadu, India
@@ -97,8 +98,8 @@ export default function Store() {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-xl text-brand-dark mb-1">Phone</h3>
-                  <a href="tel:+918124960933" className="font-body text-brand-dark/65 hover:text-brand-red transition-colors">
-                    +91 81249 60933
+                  <a href="tel:+918807159702" className="font-body text-brand-dark/65 hover:text-brand-red transition-colors">
+                    +91 88071 59702
                   </a>
                 </div>
               </div>
@@ -161,7 +162,7 @@ export default function Store() {
                         Jellove Ice Cream
                       </p>
                       <p className="font-body text-white/50 text-xs mt-0.5 truncate">
-                        Opp. Sundaram Park, KK Nagar, Madurai
+                        Iswariya Lakshmi Plaza, KK Nagar, Madurai
                       </p>
                     </div>
                     <a
@@ -180,13 +181,13 @@ export default function Store() {
               {/* Quick action pills below map */}
               <div className="flex gap-3 mt-4">
                 <a
-                  href="tel:+918124960933"
+                  href="tel:+918807159702"
                   className="flex-1 flex items-center justify-center gap-2 bg-brand-cream-dark hover:bg-brand-cream-deeper border border-brand-cream-deeper rounded-2xl py-3 font-sans font-semibold text-xs text-brand-dark/70 hover:text-brand-dark transition-all duration-200"
                 >
                   <Phone size={13} /> Call Us
                 </a>
                 <a
-                  href="https://wa.me/918124960933"
+                  href="https://wa.me/918807159702"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 bg-brand-cream-dark hover:bg-brand-cream-deeper border border-brand-cream-deeper rounded-2xl py-3 font-sans font-semibold text-xs text-brand-dark/70 hover:text-brand-dark transition-all duration-200"

@@ -29,6 +29,7 @@ export default {
         display: ['"Fraunces"', 'Georgia', 'serif'],
         sans: ['"Syne"', 'system-ui', 'sans-serif'],
         body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        brand: ['"Grand Hotel"', '"Fraunces"', 'cursive'],
       },
       animation: {
         marquee:     'marquee 35s linear infinite',

@@ -51,29 +51,27 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+918124960933"
+                  href="tel:+918807159702"
                   className="flex items-start gap-3 text-sm text-brand-cream/60 hover:text-brand-gold transition-colors"
                 >
                   <Phone size={15} className="mt-0.5 flex-shrink-0 text-brand-gold" />
-                  +91 81249 60933
+                  +91 88071 59702
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:orders@jellove.com"
+                  href="mailto:info@jellove.in"
                   className="flex items-start gap-3 text-sm text-brand-cream/60 hover:text-brand-gold transition-colors"
                 >
                   <Mail size={15} className="mt-0.5 flex-shrink-0 text-brand-gold" />
-                  <span>
-                    orders@jellove.com<br />
-                    info@jellove.com
-                  </span>
+                  info@jellove.in
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-sm text-brand-cream/60">
                   <MapPin size={15} className="mt-0.5 flex-shrink-0 text-brand-gold" />
                   <span>
+                    Iswariya Lakshmi Plaza,<br />
                     Opp. Sundaram Park Main Entrance,<br />
                     KK Nagar, Madurai
                   </span>

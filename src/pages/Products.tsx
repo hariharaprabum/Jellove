@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { IceCream, Candy, Cake, ArrowRight, MapPin, Star, Leaf, Globe } from 'lucide-react'
+import { IceCream, Candy, Cake, CupSoda, ArrowRight, MapPin, Star, Leaf, Globe } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
-import { iceCreamProducts, candyProducts, dessertProducts, type Product } from '../data/products'
+import { iceCreamProducts, candyProducts, dessertProducts, treatProducts, type Product } from '../data/products'
 import { flavors, natureFlavors } from '../data/flavors'
 
 /* ── helpers ─────────────────────────────────────────────────────── */
@@ -139,6 +139,11 @@ function CandyCard({ product }: { product: Product }) {
 
 /* ── Dessert card ────────────────────────────────────────────────── */
 function DessertCard({ product, delay = 0 }: { product: Product; delay?: number }) {
+  const isTreat = product.category === 'treats'
+  const TagIcon = isTreat ? CupSoda : Cake
+  const tagLabel = isTreat ? 'Treat' : 'Dessert'
+  const tagColor = isTreat ? 'text-brand-gold/70' : 'text-brand-world/60'
+  const hoverColor = isTreat ? 'group-hover:text-brand-gold' : 'group-hover:text-brand-world'
   return (
     <AnimatedSection delay={delay}>
       <motion.div
@@ -158,10 +163,10 @@ function DessertCard({ product, delay = 0 }: { product: Product; delay?: number 
         </div>
         <div className="p-4">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <Cake size={9} className="text-brand-world/60" />
-            <span className="text-[8px] font-sans font-bold tracking-[0.2em] uppercase text-brand-world/60">Dessert</span>
+            <TagIcon size={9} className={tagColor} />
+            <span className={`text-[8px] font-sans font-bold tracking-[0.2em] uppercase ${tagColor}`}>{tagLabel}</span>
           </div>
-          <h3 className="font-display font-bold text-sm md:text-base text-brand-dark leading-snug mb-1 group-hover:text-brand-world transition-colors duration-300">
+          <h3 className={`font-display font-bold text-sm md:text-base text-brand-dark leading-snug mb-1 ${hoverColor} transition-colors duration-300`}>
             {product.name}
           </h3>
           <p className="font-body text-[11px] text-brand-dark/45 leading-relaxed line-clamp-2">
@@ -241,6 +246,7 @@ export default function Products() {
               { id: 'ice-cream',     label: 'Ice Cream',    icon: <IceCream size={13} /> },
               { id: 'fruit-candies', label: 'Fruit Candies', icon: <Candy size={13} /> },
               { id: 'desserts',      label: 'Desserts',      icon: <Cake size={13} /> },
+              { id: 'treats',        label: 'Treats',        icon: <CupSoda size={13} /> },
             ].map((c) => (
               <button
                 key={c.id}
@@ -263,6 +269,7 @@ export default function Products() {
               { id: 'ice-cream',     label: 'Ice Cream',    icon: <IceCream size={13} />, active: 'bg-brand-red text-white' },
               { id: 'fruit-candies', label: 'Fruit Candies', icon: <Candy size={13} />,   active: 'bg-brand-nature text-white' },
               { id: 'desserts',      label: 'Desserts',      icon: <Cake size={13} />,    active: 'bg-brand-world text-white' },
+              { id: 'treats',        label: 'Treats',        icon: <CupSoda size={13} />, active: 'bg-brand-gold text-white' },
             ].map((c) => (
               <button
                 key={c.id}
@@ -333,6 +340,28 @@ export default function Products() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
             {dessertProducts.map((p, i) => (
               <DessertCard key={p.id} product={p} delay={i * 0.07} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="border-t border-brand-cream-deeper/50" />
+      </div>
+
+      {/* ══ SIGNATURE TREATS ═════════════════════════════════════ */}
+      <section id="treats" className="py-10 md:py-16 lg:py-24 scroll-mt-36">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <SectionHead
+            icon={<CupSoda size={22} />}
+            label="Collection 04"
+            title={<>Signature <span className="italic text-brand-gold">Treats</span></>}
+            accent="#E8A61A"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-7">
+            {treatProducts.map((p, i) => (
+              <DessertCard key={p.id} product={p} delay={i * 0.08} />
             ))}
           </div>
         </div>

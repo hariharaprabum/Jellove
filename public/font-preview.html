@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jellove — Font Picker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=DM+Serif+Display&family=Gloock&family=Cormorant+Garamond:wght@600;700&family=Marcellus&family=Playfair+Display:wght@700;800&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Grand+Hotel&family=Sacramento&family=Unbounded:wght@700;800&family=Fredoka:wght@500;600;700&family=Quicksand:wght@600;700&family=Varela+Round&family=Rubik:wght@600;700;800&family=Comfortaa:wght@600;700&family=Nunito:wght@700;800;900&family=Cinzel:wght@600;700&family=Poppins:wght@600;700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #fff5e8; --cream-dark: #f5e8d0; --cream-deeper: #edd9b8;
+        --dark: #1a0d04; --red: #d42719; --gold: #e8a61a; --gold-light: #f5c842;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: var(--cream); color: var(--dark); font-family: "DM Sans", system-ui, sans-serif; padding: 40px 20px 90px; }
+      .wrap { max-width: 880px; margin: 0 auto; }
+      header { text-align: center; margin-bottom: 22px; }
+      header .eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; color: var(--red); margin-bottom: 10px; }
+      header h1 { font-family: "DM Serif Display", serif; font-size: 30px; font-weight: 400; }
+      .logo-box { text-align:center; background:#fff; border:1px solid var(--cream-deeper); border-radius:22px; padding:24px; margin-bottom:14px; }
+      .logo-box img { max-width: 320px; width: 70%; height:auto; }
+      .logo-box .cap { font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:#1a0d0466; font-weight:700; margin-top:8px; }
+      .note { max-width: 880px; margin: 0 auto 26px; text-align: center; font-size: 13px; color: #1a0d0399; line-height: 1.6; }
+      .group-title { max-width:880px; margin:34px auto 14px; font-size:12px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:12px; }
+      .group-title::after { content:""; flex:1; height:1px; background:var(--cream-deeper); }
+      .card { background: #fff; border: 1px solid var(--cream-deeper); border-radius: 20px; overflow: hidden; margin-bottom: 18px; }
+      .card .label { display: flex; align-items: center; justify-content: space-between; padding: 11px 20px; background: var(--cream-dark); border-bottom: 1px solid var(--cream-deeper); }
+      .card .label .name { font-weight: 700; font-size: 13px; }
+      .card .label .tag { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #1a0d0466; }
+      .card .body { padding: 24px 26px 28px; }
+      .heading { font-size: clamp(28px, 5.5vw, 52px); line-height: 1.02; color: var(--dark); }
+      .heading .accent { color: var(--red); }
+      .mark-strip { margin-top: 20px; background: var(--dark); border-radius: 14px; padding: 16px 24px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+      .mark-strip .lead { font-family: "DM Serif Display", serif; color: #fff; font-size: clamp(24px,4.5vw,42px); }
+      .mark-strip .mark { color: var(--gold-light); font-size: clamp(32px,6.5vw,58px); line-height: 1; }
+      .caps .mark { text-transform: uppercase; letter-spacing: 0.02em; }
+
+      .f-fredoka   .heading,.f-fredoka   .mark{font-family:"Fredoka",sans-serif;font-weight:700}
+      .f-quicksand .heading,.f-quicksand .mark{font-family:"Quicksand",sans-serif;font-weight:700}
+      .f-varela    .heading,.f-varela    .mark{font-family:"Varela Round",sans-serif}
+      .f-rubik     .heading,.f-rubik     .mark{font-family:"Rubik",sans-serif;font-weight:800}
+      .f-comfortaa .heading,.f-comfortaa .mark{font-family:"Comfortaa",sans-serif;font-weight:700}
+      .f-nunito    .heading,.f-nunito    .mark{font-family:"Nunito",sans-serif;font-weight:900}
+      .f-poppins   .heading,.f-poppins   .mark{font-family:"Poppins",sans-serif;font-weight:700}
+      .f-cinzel    .heading,.f-cinzel    .mark{font-family:"Cinzel",serif;font-weight:700}
+      .f-yeseva    .heading,.f-yeseva    .mark{font-family:"Yeseva One",serif}
+      .f-gloock    .heading,.f-gloock    .mark{font-family:"Gloock",serif}
+      .f-dmserif   .heading,.f-dmserif   .mark{font-family:"DM Serif Display",serif}
+      .f-cormorant .heading,.f-cormorant .mark{font-family:"Cormorant Garamond",serif;font-weight:700}
+      .f-marcellus .heading,.f-marcellus .mark{font-family:"Marcellus",serif}
+      .f-playfair  .heading,.f-playfair  .mark{font-family:"Playfair Display",serif;font-weight:800}
+      .f-bricolage .heading,.f-bricolage .mark{font-family:"Bricolage Grotesque",sans-serif;font-weight:800}
+      .f-unbounded .heading,.f-unbounded .mark{font-family:"Unbounded",sans-serif;font-weight:800}
+      .f-grandhotel .heading,.f-grandhotel .mark{font-family:"Grand Hotel",cursive}
+      .f-sacramento .heading,.f-sacramento .mark{font-family:"Sacramento",cursive}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="eyebrow">Jellove · Font Picker v2</div>
+        <h1>Pick the heading font</h1>
+      </header>
+      <div class="logo-box">
+        <img src="/logo.png" alt="Jellove logo" />
+        <div class="cap">↑ the actual logo — match its feel</div>
+      </div>
+    </div>
+    <p class="note">
+      Replacing <b>Fraunces</b>. The logo wordmark is a <b>rounded geometric sans</b>; the "ICE CREAM"
+      tagline is an <b>engraved serif</b>. New logo-matched options added below. Tell me the card name to apply site-wide.
+    </p>
+
+    <div class="group-title">Logo-matched · rounded sans (like the wordmark)</div>
+    <div class="wrap" id="g-rounded"></div>
+
+    <div class="group-title">Logo-matched · engraved serif (like the tagline)</div>
+    <div class="wrap" id="g-engraved"></div>
+
+    <div class="group-title">Warm &amp; refined serifs</div>
+    <div class="wrap" id="g-serif"></div>
+
+    <div class="group-title">Modern &amp; scripts</div>
+    <div class="wrap" id="g-other"></div>
+
+    <script>
+      const groups = {
+        'g-rounded': [
+          ['f-fredoka','Fredoka','Rounded geometric · closest to the wordmark', true],
+          ['f-rubik','Rubik','Soft-corner modern · premium, less bubbly', true],
+          ['f-quicksand','Quicksand','Rounded geometric · lighter & elegant', true],
+          ['f-varela','Varela Round','Clean rounded · simple & friendly', true],
+          ['f-nunito','Nunito','Rounded humanist · warm & readable', true],
+          ['f-comfortaa','Comfortaa','Rounded geometric · airy', true],
+          ['f-poppins','Poppins','Geometric · crisp & contemporary', true],
+        ],
+        'g-engraved': [
+          ['f-cinzel','Cinzel','Trajan-style caps · matches the ICE CREAM tagline', false],
+          ['f-marcellus','Marcellus','Roman inscriptional · quiet luxury', false],
+          ['f-cormorant','Cormorant Garamond','Refined classic serif · upscale', false],
+        ],
+        'g-serif': [
+          ['f-yeseva','Yeseva One','Warm display serif · friendly-premium', false],
+          ['f-gloock','Gloock','Warm fat didone · bold', false],
+          ['f-dmserif','DM Serif Display','Elegant didone · pairs with body font', false],
+          ['f-playfair','Playfair Display','High-contrast classic', false],
+        ],
+        'g-other': [
+          ['f-bricolage','Bricolage Grotesque','Modern characterful sans', false],
+          ['f-unbounded','Unbounded','Rounded display · bold & playful', false],
+          ['f-grandhotel','Grand Hotel','Vintage parlour script', false],
+          ['f-sacramento','Sacramento','Delicate boutique script', false],
+        ],
+      };
+      const card = ([cls,name,tag,caps]) => `
+        <div class="card ${cls} ${caps?'caps':''}">
+          <div class="label"><span class="name">${name}</span><span class="tag">${tag}</span></div>
+          <div class="body">
+            <div class="heading">Born in <span class="accent">Madurai</span></div>
+            <div class="mark-strip"><span class="lead">About</span><span class="mark">Jellove</span></div>
+          </div>
+        </div>`;
+      for (const [id, list] of Object.entries(groups)) {
+        document.getElementById(id).innerHTML = list.map(card).join('');
+      }
+    </script>
+  </body>
+</html>

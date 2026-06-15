@@ -3,7 +3,7 @@ export interface Product {
   name: string
   description: string
   image: string
-  category: 'icecream' | 'candies' | 'desserts'
+  category: 'icecream' | 'candies' | 'desserts' | 'treats'
   badge?: string
   flavoursNote?: string
 }
@@ -74,5 +74,29 @@ export const dessertProducts: Product[] = [
     description: 'Thick, bakery-style cookies — crispy outside, chewy inside. Inspired by the classic New York cookie shops.',
     image: '/images/desserts/ny-cookies.webp',
     category: 'desserts',
+  },
+]
+
+export const treatProducts: Product[] = [
+  {
+    id: 'sundae',
+    name: 'Sundaes',
+    description: 'Layered scoops, silky sauces and crunchy toppings, built tall in a glass. A celebration in every spoonful.',
+    image: '/images/products/sundae.webp',
+    category: 'treats',
+  },
+  {
+    id: 'falooda',
+    name: 'Faloodas',
+    description: 'The classic rose falooda — vermicelli, basil seeds, chilled milk and a scoop of ice cream, finished with nuts and rose.',
+    image: '/images/products/falooda.webp',
+    category: 'treats',
+  },
+  {
+    id: 'ice-cream-shake',
+    name: 'Ice Cream Shakes',
+    description: 'Thick, hand-blended shakes crowned with whipped cream and your favourite toppings. Pure, sippable indulgence.',
+    image: '/images/products/ice-cream-shake.webp',
+    category: 'treats',
   },
 ]
