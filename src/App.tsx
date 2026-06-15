@@ -8,6 +8,7 @@ import Flavours from './pages/Flavours'
 import Products from './pages/Products'
 import About from './pages/About'
 import Store from './pages/Store'
+import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -27,6 +28,7 @@ function AppInner() {
           <Route path="/products"  element={<Products />} />
           <Route path="/about"     element={<About />} />
           <Route path="/store"     element={<Store />} />
+          <Route path="*"          element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

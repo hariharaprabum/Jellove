@@ -18,14 +18,8 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { background: var(--cream); color: var(--dark); font-family: "DM Sans", system-ui, sans-serif; padding: 40px 20px 90px; }
       .wrap { max-width: 880px; margin: 0 auto; }
-      header { text-align: center; margin-bottom: 22px; }
-      header .eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; color: var(--red); margin-bottom: 10px; }
-      header h1 { font-family: "DM Serif Display", serif; font-size: 30px; font-weight: 400; }
-      .logo-box { text-align:center; background:#fff; border:1px solid var(--cream-deeper); border-radius:22px; padding:24px; margin-bottom:14px; }
-      .logo-box img { max-width: 320px; width: 70%; height:auto; }
-      .logo-box .cap { font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:#1a0d0466; font-weight:700; margin-top:8px; }
-      .note { max-width: 880px; margin: 0 auto 26px; text-align: center; font-size: 13px; color: #1a0d0399; line-height: 1.6; }
       .group-title { max-width:880px; margin:34px auto 14px; font-size:12px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:12px; }
+      .group-title:first-child { margin-top: 0; }
       .group-title::after { content:""; flex:1; height:1px; background:var(--cream-deeper); }
       .card { background: #fff; border: 1px solid var(--cream-deeper); border-radius: 20px; overflow: hidden; margin-bottom: 18px; }
       .card .label { display: flex; align-items: center; justify-content: space-between; padding: 11px 20px; background: var(--cream-dark); border-bottom: 1px solid var(--cream-deeper); }
@@ -60,21 +54,6 @@
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <header>
-        <div class="eyebrow">Jellove · Font Picker v2</div>
-        <h1>Pick the heading font</h1>
-      </header>
-      <div class="logo-box">
-        <img src="/logo.png" alt="Jellove logo" />
-        <div class="cap">↑ the actual logo — match its feel</div>
-      </div>
-    </div>
-    <p class="note">
-      Replacing <b>Fraunces</b>. The logo wordmark is a <b>rounded geometric sans</b>; the "ICE CREAM"
-      tagline is an <b>engraved serif</b>. New logo-matched options added below. Tell me the card name to apply site-wide.
-    </p>
-
     <div class="group-title">Logo-matched · rounded sans (like the wordmark)</div>
     <div class="wrap" id="g-rounded"></div>
 
