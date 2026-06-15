@@ -22,13 +22,7 @@ export default function About() {
           >
             <span className="section-label text-brand-gold/60 mb-4 block">Our Story</span>
             <h1 className="display-heading text-6xl md:text-8xl text-white mb-6">
-              About{' '}
-              <span
-                className="font-brand tracking-normal text-brand-gold-light"
-                style={{ fontSize: '1.18em', lineHeight: 1 }}
-              >
-                Jellove
-              </span>
+              About <span className="text-brand-gold-light">Jellove</span>
             </h1>
             <p className="font-body text-white/60 text-xl max-w-xl mx-auto">
               Crafting happiness, one scoop at a time — from the heart of Madurai.

@@ -29,7 +29,8 @@ export default function Navbar() {
   }, [location.pathname])
 
   const isHome = location.pathname === '/'
-  const transparent = isHome && !scrolled
+  // Solid header when the mobile menu is open so it matches the drawer background
+  const transparent = isHome && !scrolled && !open
 
   return (
     <>

@@ -244,7 +244,7 @@ export function HeroBannerAperture() {
           transition={{ duration: 1.0, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="text-right leading-[0.87] tracking-[-0.03em] select-none"
-            style={{ fontFamily: 'Fraunces, Georgia, serif', fontWeight: 900 }}>
+            style={{ fontFamily: 'Fredoka, system-ui, sans-serif', fontWeight: 700 }}>
             <div className="text-white" style={{ fontSize: 'clamp(48px, 4.8vw, 76px)' }}>TWO</div>
             <div className="italic text-brand-gold" style={{ fontSize: 'clamp(48px, 4.8vw, 76px)' }}>WORLDS.</div>
           </div>
@@ -317,7 +317,7 @@ export function HeroBannerAperture() {
                 strokeWidth="3.5"
                 paintOrder="stroke"
                 fontSize="10"
-                fontFamily="Syne, sans-serif"
+                fontFamily="Quicksand, sans-serif"
                 fontWeight="700"
                 letterSpacing="3"
                 textAnchor="middle"
@@ -329,7 +329,7 @@ export function HeroBannerAperture() {
               <text
                 fill="rgb(134,239,172)"
                 fontSize="10"
-                fontFamily="Syne, sans-serif"
+                fontFamily="Quicksand, sans-serif"
                 fontWeight="700"
                 letterSpacing="3"
                 textAnchor="middle"
@@ -351,7 +351,7 @@ export function HeroBannerAperture() {
                 strokeWidth="3.5"
                 paintOrder="stroke"
                 fontSize="10"
-                fontFamily="Syne, sans-serif"
+                fontFamily="Quicksand, sans-serif"
                 fontWeight="700"
                 letterSpacing="3"
                 textAnchor="middle"
@@ -363,7 +363,7 @@ export function HeroBannerAperture() {
               <text
                 fill="rgb(252,211,77)"
                 fontSize="10"
-                fontFamily="Syne, sans-serif"
+                fontFamily="Quicksand, sans-serif"
                 fontWeight="700"
                 letterSpacing="3"
                 textAnchor="middle"
@@ -400,7 +400,7 @@ export function HeroBannerAperture() {
           transition={{ duration: 1.0, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="text-left leading-[0.87] tracking-[-0.03em] select-none"
-            style={{ fontFamily: 'Fraunces, Georgia, serif', fontWeight: 900 }}>
+            style={{ fontFamily: 'Fredoka, system-ui, sans-serif', fontWeight: 700 }}>
             <div className="text-white" style={{ fontSize: 'clamp(48px, 4.8vw, 76px)' }}>ONE</div>
             <div className="italic text-brand-gold" style={{ fontSize: 'clamp(48px, 4.8vw, 76px)' }}>SCOOP.</div>
           </div>
@@ -505,7 +505,7 @@ function HeroBanner() {
         <motion.div
           className="relative flex-shrink-0 cursor-pointer flex flex-col"
           style={{
-            width: 'clamp(150px, 22vw, 300px)',
+            width: 'clamp(162px, 40vw, 300px)',
             boxShadow: '0 32px 80px rgba(26,13,4,0.25), 0 8px 24px rgba(26,13,4,0.14)',
             borderRadius: '16px',
           }}
@@ -535,11 +535,11 @@ function HeroBanner() {
             </div>
             <div className="min-w-0">
               <p className="font-sans font-bold text-green-300/60 leading-none mb-1"
-                style={{ fontSize: 'clamp(6px, 0.65vw, 8px)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
+                style={{ fontSize: 'clamp(8px, 1.2vw, 9px)', letterSpacing: '0.26em', textTransform: 'uppercase' }}>
                 From All of
               </p>
               <p className="font-display font-black italic text-white leading-none"
-                style={{ fontSize: 'clamp(16px, 2vw, 28px)', letterSpacing: '-0.01em' }}>
+                style={{ fontSize: 'clamp(19px, 2.4vw, 28px)', letterSpacing: '-0.01em' }}>
                 Nature
               </p>
             </div>
@@ -554,7 +554,7 @@ function HeroBanner() {
         <motion.div
           className="relative flex-shrink-0 cursor-pointer flex flex-col"
           style={{
-            width: 'clamp(150px, 22vw, 300px)',
+            width: 'clamp(162px, 40vw, 300px)',
             marginLeft: 'clamp(-24px, -3vw, -40px)',
             boxShadow: '0 32px 80px rgba(26,13,4,0.25), 0 8px 24px rgba(26,13,4,0.14)',
             borderRadius: '16px',
@@ -585,11 +585,11 @@ function HeroBanner() {
             </div>
             <div className="min-w-0">
               <p className="font-sans font-bold text-amber-300/60 leading-none mb-1"
-                style={{ fontSize: 'clamp(6px, 0.65vw, 8px)', letterSpacing: '0.3em', textTransform: 'uppercase' }}>
+                style={{ fontSize: 'clamp(8px, 1.2vw, 9px)', letterSpacing: '0.26em', textTransform: 'uppercase' }}>
                 Around the
               </p>
               <p className="font-display font-black italic text-white leading-none"
-                style={{ fontSize: 'clamp(16px, 2vw, 28px)', letterSpacing: '-0.01em' }}>
+                style={{ fontSize: 'clamp(19px, 2.4vw, 28px)', letterSpacing: '-0.01em' }}>
                 World
               </p>
             </div>
