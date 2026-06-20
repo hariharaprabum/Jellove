@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ShoppingBag } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import OrderModal from './OrderModal'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -14,6 +15,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [orderOpen, setOrderOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -86,12 +88,13 @@ export default function Navbar() {
 
           {/* CTA + hamburger */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/store"
-              className="hidden md:inline-flex items-center text-sm font-sans font-semibold tracking-wide px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 bg-brand-red text-white hover:bg-brand-red-dark"
+            <button
+              type="button"
+              onClick={() => setOrderOpen(true)}
+              className="hidden md:inline-flex items-center gap-2 text-sm font-sans font-semibold tracking-wide px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 bg-brand-red text-white hover:bg-brand-red-dark"
             >
-              Visit Store
-            </Link>
+              <ShoppingBag size={15} /> Order / Enquiry
+            </button>
             <button
               onClick={() => setOpen(v => !v)}
               className="lg:hidden p-2 rounded-full transition-colors text-brand-dark hover:bg-brand-cream-dark"
@@ -126,13 +129,19 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Link to="/store" className="mt-2 btn-primary justify-center">
-                Visit Store
-              </Link>
+              <button
+                type="button"
+                onClick={() => { setOpen(false); setOrderOpen(true) }}
+                className="mt-2 btn-primary justify-center w-full"
+              >
+                <ShoppingBag size={15} /> Order / Enquiry
+              </button>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <OrderModal open={orderOpen} onClose={() => setOrderOpen(false)} />
     </>
   )
 }
