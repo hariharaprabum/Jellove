@@ -166,7 +166,7 @@ export default function Flavours() {
                 <MapPin size={16} /> Find Our Store
               </Link>
               <Link to="/products" className="btn-outline text-brand-dark border-brand-dark/30 hover:border-brand-red hover:text-brand-red">
-                See Our Products
+                Explore the Full Menu
               </Link>
             </div>
           </AnimatedSection>

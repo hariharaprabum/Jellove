@@ -697,6 +697,14 @@ function ProgressDot({ isActive, onClick }: { isActive: boolean; onClick: () => 
 }
 
 /* ─── Page ─────────────────────────────────────────────── */
+const MENU_TEASERS = [
+  { id: 'shakes',    label: 'Shakes',    img: '/images/menu/shakes/oreo.webp',                       href: '/products#shakes',    accent: '#B83280' },
+  { id: 'faloodas',  label: 'Faloodas',  img: '/images/menu/faloodas/mango-royal.webp',              href: '/products#faloodas',  accent: '#E8A61A' },
+  { id: 'sundaes',   label: 'Sundaes',   img: '/images/menu/sundaes/love-by-chocolate.webp',         href: '/products#sundaes',   accent: '#C2410C' },
+  { id: 'smoothies', label: 'Smoothies', img: '/images/menu/smoothies/strawberry-banana-bliss.webp', href: '/products#smoothies', accent: '#2F8F6B' },
+  { id: 'desserts',  label: 'Desserts',  img: '/images/menu/desserts/flavoured-cheesecake.webp',     href: '/products#desserts',  accent: '#8A5A10' },
+]
+
 export default function HomeNew() {
   const videoScrollRef = useRef<HTMLDivElement>(null)
   const [videoIdx, setVideoIdx] = useState(0)
@@ -843,6 +851,50 @@ export default function HomeNew() {
               </Link>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* ══ MORE THAN ICE CREAM ══ */}
+      <section className="pt-12 md:pt-20 lg:pt-28 pb-0">
+        <div className="max-w-7xl mx-auto px-5 md:px-10">
+          <AnimatedSection className="text-center mb-9 md:mb-14">
+            <span className="section-label text-brand-red/60 mb-3 block">Straight From the Menu</span>
+            <h2 className="font-display font-black text-brand-dark text-4xl md:text-5xl xl:text-6xl leading-[0.95] tracking-tight">
+              More than <span className="italic text-brand-red">ice cream.</span>
+            </h2>
+            <p className="font-body text-brand-dark/55 text-base md:text-lg leading-relaxed mt-4 max-w-xl mx-auto">
+              Shakes, faloodas, sundaes, smoothies &amp; fresh desserts — all handcrafted in-store, every single day.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5">
+            {MENU_TEASERS.map((c, i) => (
+              <AnimatedSection key={c.id} delay={i * 0.07}>
+                <Link to={c.href} className="group block">
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 aspect-[3/4]"
+                  >
+                    <img src={c.img} alt={`${c.label} — Jellove`} loading="lazy" decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-brand-dark/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                      <div className="w-7 h-0.5 rounded-full mb-2" style={{ background: c.accent }} />
+                      <h3 className="font-display font-bold text-white text-base md:text-lg leading-tight">{c.label}</h3>
+                      <span className="inline-flex items-center gap-1 text-white/70 text-[11px] font-sans font-semibold mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        Explore <ArrowRight size={11} />
+                      </span>
+                    </div>
+                  </motion.div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection className="text-center mt-9 md:mt-12">
+            <Link to="/products" className="btn-primary">View Full Menu <ArrowRight size={16} /></Link>
+          </AnimatedSection>
         </div>
       </section>
 
